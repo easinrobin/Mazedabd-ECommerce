@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6703AA88-DCEB-440A-BFE5-02B0A02D2D19}</ProjectGuid>
+    <ProjectGuid>{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MZ.BusinessLayer</RootNamespace>
-    <AssemblyName>MZ.BusinessLayer</AssemblyName>
+    <RootNamespace>MZ.DataLayerSql</RootNamespace>
+    <AssemblyName>MZ.DataLayerSql</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,24 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryManager.cs" />
-    <Compile Include="ClientManager.cs" />
-    <Compile Include="CompanySettingsManager.cs" />
-    <Compile Include="FeedbackManager.cs" />
-    <Compile Include="HomeManager.cs" />
-    <Compile Include="ProductManager.cs" />
+    <Compile Include="CommonUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceManager.cs" />
-    <Compile Include="UserManager.cs" />
+    <Compile Include="SqlClientProvider.cs" />
+    <Compile Include="SqlCompanySettingsProvider.cs" />
+    <Compile Include="SqlFeedbackProvider.cs" />
+    <Compile Include="SqlHomeProvider.cs" />
+    <Compile Include="SqlProductCategoryProvider.cs" />
+    <Compile Include="SqlProductGalleryProvider.cs" />
+    <Compile Include="SqlProductProvider.cs" />
+    <Compile Include="SqlServiceProvider.cs" />
+    <Compile Include="SqlUserProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MZ.DataLayerSql\MZ.DataLayerSql.csproj">
-      <Project>{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}</Project>
-      <Name>MZ.DataLayerSql</Name>
+    <ProjectReference Include="..\MZ.DataLayer\MZ.DataLayer.csproj">
+      <Project>{B006963D-BF8D-4A49-8E42-A2812614B5E3}</Project>
+      <Name>MZ.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\MZ.Models\MZ.Models.csproj">
       <Project>{368d8c06-49ce-438f-bf46-25ea0c32038e}</Project>
       <Name>MZ.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MZ.Utility\MZ.Utility.csproj">
+      <Project>{e6607ed9-513c-4d61-909f-940676b3a2ff}</Project>
+      <Name>MZ.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

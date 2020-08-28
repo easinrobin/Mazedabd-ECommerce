@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using MZ.DataLayerSql;
+using MZ.Models;
 
 namespace MZ.BusinessLayer
 {
@@ -35,12 +33,6 @@ namespace MZ.BusinessLayer
             return provider.GetAboutUs(Id);
         }
 
-        public static OurClientsBanner GetClientsBanner(long Id)
-        {
-            SqlHomeProvider provider = new SqlHomeProvider();
-            return provider.GetClientsBanner(Id);
-        }
-
         #endregion
 
         #region SetBanner
@@ -61,12 +53,6 @@ namespace MZ.BusinessLayer
         {
             SqlHomeProvider provider = new SqlHomeProvider();
             return provider.UpdateAbout(aboutUs);
-        }
-
-        public static bool UpdateClientsBanner(OurClientsBanner clientsBanner)
-        {
-            SqlHomeProvider provider = new SqlHomeProvider();
-            return provider.UpdateClientsBanner(clientsBanner);
         }
 
         #endregion

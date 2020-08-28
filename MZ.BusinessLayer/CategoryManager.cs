@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using MZ.DataLayerSql;
+using MZ.Models;
 
 namespace MZ.BusinessLayer
 {
@@ -29,7 +27,7 @@ namespace MZ.BusinessLayer
         public static long InsertProductCategory(ProductCategory product)
         {
             SqlProductCategoryProvider provider = new SqlProductCategoryProvider();
-            return provider.InsertProductCategory(Product);
+            return provider.InsertProductCategory(product);
         }
 
         public static bool DeleteProductCategory(long Id)

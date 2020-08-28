@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MZ.Utility", "MZ.Utility\MZ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MZ.DataLayer", "MZ.DataLayer\MZ.DataLayer.csproj", "{B006963D-BF8D-4A49-8E42-A2812614B5E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MZ.DataLayerSql", "MZ.DataLayerSql\MZ.DataLayerSql.csproj", "{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B006963D-BF8D-4A49-8E42-A2812614B5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B006963D-BF8D-4A49-8E42-A2812614B5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B006963D-BF8D-4A49-8E42-A2812614B5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9C1427-5917-46DE-AD07-7027B4D4DD6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
