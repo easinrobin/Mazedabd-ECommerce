@@ -4,7 +4,7 @@ using MZ.Models;
 
 namespace MZ.BusinessLayer
 {
-    class ClientManager
+    public class ClientManager
     {
         public static List<OurClient> GetAllClients()
         {

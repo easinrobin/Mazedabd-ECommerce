@@ -3,7 +3,7 @@ using MZ.Models;
 
 namespace MZ.BusinessLayer
 {
-    class CompanySettingsManager
+    public class CompanySettingsManager
     {
         public static CompanySetting GetCompanySettings(long Id)
         {

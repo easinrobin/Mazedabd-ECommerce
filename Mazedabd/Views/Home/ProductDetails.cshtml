@@ -1,0 +1,169 @@
+﻿@using reCAPTCHA.MVC
+@model TW.Models.PublicViewModel
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/">Home</a> <i class="icon-angle-right"></i></li>
+                        <li><a href="/Home/ProductCategory">Product Category</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">Products</li>
+                    </ul>
+                    <h2>@Html.Raw(Model.Project.ProjectName)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@{
+    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @Model.Project.ImageUrl;
+    var imagepath = @Model.Project.ImageUrl;
+
+    var i = 2;
+    var j = 2;
+}
+<div class="product-details-area fluid-padding-3 ptb-130">
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+                <div class="product-details-img-content">
+                    <div class="product-details-tab mr-40">
+                        <div class="product-details-large tab-content">
+                            <div class="tab-pane active" id="pro-details1">
+                                <div class="easyzoom easyzoom--overlay">
+                                    <a href="@imagepath">
+                                        <img src="@imagepath" alt="test">
+                                    </a>
+                                </div>
+                            </div>
+                            @foreach (var item in Model.ProjectGalleries)
+                            {
+                                var imgId = "pro-details" + i.ToString();
+                                var galleryImage = item.ImageUrl;
+
+                                <div class="tab-pane" id="@imgId">
+                                    <div class="easyzoom easyzoom--overlay">
+                                        <a href="@galleryImage">
+                                            <img src="@galleryImage" alt="@item.ProjectId">
+                                        </a>
+                                    </div>
+                                </div>
+                                i++;
+                            }
+                        </div>
+                        <div class="product-details-small nav mt-12 product-dec-slider owl-carousel div-center">
+                            <a class="active" href="#pro-details1">
+                                <img src="@imagepath" alt="test">
+                            </a>
+                            @foreach (var item in Model.ProjectGalleries)
+                            {
+                                var imgId = "pro-details" + j.ToString();
+                                var galleryImage = item.ImageUrl;
+
+                                <a class="active" href="#@imgId">
+                                    <img src="@galleryImage" alt="@item.ProjectId">
+                                </a>
+                                j++;
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="product-details-content">
+                    <h2>@Model.Project.ProjectName</h2>
+                    @if (!string.IsNullOrEmpty(Model.Project.DiscountPrice.ToString()) && Model.Project.DiscountPrice > 0)
+                    {
+                        <div class="product-price">
+                            Price: <span class="strikeText">৳ @Model.Project.Price</span>
+                        </div>
+                        <div class="product-price">
+                            Discount Price: <span>৳ @Model.Project.DiscountPrice</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="product-price">
+                            <span>৳ @Model.Project.Price</span>
+                        </div>
+                    }
+                    <div class="product-overview">
+                        <h5 class="pd-sub-title">Product Overview</h5>
+                        <p>@Html.Raw(Model.Project.Description)</p>
+                    </div>
+                    @*<div class="product-share">
+                        <h5 class="pd-sub-title">Share</h5>
+                        <ul>
+                            <li>
+                                <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2"></div>
+            <div class="span8">
+                <h4>Get in touch if you have any query</h4>
+                @if (Session["EmailStatus"] != null && !string.IsNullOrEmpty(Session["EmailStatus"].ToString()))
+                {
+                    @Html.Raw(Session["EmailStatus"])
+                }
+                @using (Html.BeginForm("ProductDetails", "Home", FormMethod.Post, new { @class = "contactForm" }))
+                {
+                    @Html.HiddenFor(x => x.Project.ProjectName)
+                    @Html.HiddenFor(x => x.Project.Id)
+                    @Html.HiddenFor(x => x.Project.Price)
+                    @Html.HiddenFor(x => x.Project.DiscountPrice)
+                    @Html.HiddenFor(x => x.Project.Description)
+                    @Html.HiddenFor(x => x.Project.ImageUrl)
+
+                    <div class="row">
+                        <div class="span4 form-group field">
+                            @Html.TextBoxFor(model => model.Feedback.Name, new { @class = "", @id = "name", placeholder = "Your Name" })
+                            @Html.ValidationMessageFor(model => model.Feedback.Name, "", new { @class = "red-text" })
+                        </div>
+
+                        <div class="span4 form-group">
+                            @Html.TextBoxFor(model => model.Feedback.Mobile, new { @class = "", @id = "email", placeholder = "Your Mobile No." })
+                            @Html.ValidationMessageFor(model => model.Feedback.Mobile, "", new { @class = "red-text" })
+                        </div>
+
+                        <div class="span8 form-group">
+                            @Html.TextAreaFor(model => model.Feedback.Message, new { rows = "5", placeholder = "Message" })
+                            @Html.ValidationMessageFor(model => model.Feedback.Message, "", new { @class = "red-text" })
+                        </div>
+
+                        <div class="span4 form-group">
+                            @Html.Recaptcha(publicKey: "6LcMg8MZAAAAACN7rUGTRZ3bL_J7_ABr-GCvvzl7", theme: CaptchaTheme.Dark,type:CaptchaType.Image)
+                            @Html.ValidationMessage("ReCaptcha", new { @class = "red-text" })
+                        </div>
+
+
+                        <div class="text-right">
+                            <button class="btn btn-theme btn-medium margintop10" type="submit">Send a message</button>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="span2"></div>
+        </div>
+    </div>
+</div>
+
+
+@*@Html.Partial("~/Views/Partial/_specialpriceadds.cshtml", Model)*@

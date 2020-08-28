@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="reCAPTCHA.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -121,33 +124,189 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustomCss\error404.css" />
+    <Content Include="Content\CustomCss\style.css" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\slick.svg" />
+    <Content Include="Content\ThirdPartyCss\animate.css" />
+    <Content Include="Content\ThirdPartyCss\bootstrap-responsive.css" />
+    <Content Include="Content\ThirdPartyCss\bootstrap-responsive.min.css" />
+    <Content Include="Content\ThirdPartyCss\bootstrap.css" />
+    <Content Include="Content\ThirdPartyCss\bootstrap.min.css" />
+    <Content Include="Content\ThirdPartyCss\camera.css" />
+    <Content Include="Content\ThirdPartyCss\cslider.css" />
+    <Content Include="Content\ThirdPartyCss\default.css" />
+    <Content Include="Content\ThirdPartyCss\easyzoom.css" />
+    <Content Include="Content\ThirdPartyCss\flexslider.css" />
+    <Content Include="Content\ThirdPartyCss\flickity.min.css" />
+    <Content Include="Content\ThirdPartyCss\font-awesome-ie7.css" />
+    <Content Include="Content\ThirdPartyCss\font-awesome.css" />
+    <Content Include="Content\ThirdPartyCss\jquery.bxslider.css" />
+    <Content Include="Content\ThirdPartyCss\overwrite.css" />
+    <Content Include="Content\ThirdPartyCss\owl.carousel.min.css" />
+    <Content Include="Content\ThirdPartyCss\prettify.css" />
+    <Content Include="Content\ThirdPartyCss\prettyPhoto.css" />
+    <Content Include="Content\ThirdPartyCss\shortcodes.css" />
+    <Content Include="Content\ThirdPartyCss\slick-theme.css" />
+    <Content Include="Content\ThirdPartyCss\slick.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="img\about-bg.jpg" />
+    <Content Include="img\AboutUs.jpg" />
+    <Content Include="img\BannerImage\banner4.jpg" />
+    <Content Include="img\BannerImage\fruit-banner.jpg" />
+    <Content Include="img\BannerImage\mrf1.jpeg" />
+    <Content Include="img\BannerImage\mrf2.jpeg" />
+    <Content Include="img\BannerImage\mrf3.jpeg" />
+    <Content Include="img\bg_direction_nav.png" />
+    <Content Include="img\camera\camera-loader.gif" />
+    <Content Include="img\camera\camera_skins.png" />
+    <Content Include="img\camera\patterns\overlay1.png" />
+    <Content Include="img\camera\patterns\overlay10.png" />
+    <Content Include="img\camera\patterns\overlay2.png" />
+    <Content Include="img\camera\patterns\overlay3.png" />
+    <Content Include="img\camera\patterns\overlay4.png" />
+    <Content Include="img\camera\patterns\overlay5.png" />
+    <Content Include="img\camera\patterns\overlay6.png" />
+    <Content Include="img\camera\patterns\overlay7.png" />
+    <Content Include="img\camera\patterns\overlay8.png" />
+    <Content Include="img\camera\patterns\overlay9.png" />
+    <Content Include="img\camera\patterns\_notes\dwsync.xml" />
+    <Content Include="img\category\food.png" />
+    <Content Include="img\category\fruits.jpg" />
+    <Content Include="img\category\fruits.png" />
+    <Content Include="img\category\lub.png" />
+    <Content Include="img\category\service-parts.png" />
+    <Content Include="img\category\tyres.png" />
+    <Content Include="img\giphy.gif" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\logo1.jpg" />
+    <Content Include="img\logo1.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="img\prettyPhoto\default\loader.gif" />
+    <Content Include="img\prettyPhoto\default\sprite.png" />
+    <Content Include="img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="img\products\bike-engine-oil.jpeg" />
+    <Content Include="img\products\bike-product.png" />
+    <Content Include="img\products\car-product.png" />
+    <Content Include="img\products\fruits.jpg" />
+    <Content Include="img\products\fruits.png" />
+    <Content Include="img\products\lub-product.png" />
+    <Content Include="img\products\M77-1.jpg" />
+    <Content Include="img\products\M77.jpeg" />
+    <Content Include="img\products\malta.jpg" />
+    <Content Include="img\products\Maximo Power V Plus.jpeg" />
+    <Content Include="img\products\Maximo Super.jpeg" />
+    <Content Include="img\products\Maximo Ultra.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-3.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS.jpeg" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R-1.jpg" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R-2.png" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R.jpeg" />
+    <Content Include="img\products\MRF SUPER MILER 99-1.jpg" />
+    <Content Include="img\products\MRF SUPER MILER 99-2.jpg" />
+    <Content Include="img\products\MRF SUPER MILER 99-3.jpeg" />
+    <Content Include="img\products\MRF SUPER MILER 99.jpeg" />
+    <Content Include="img\products\Optimo Diamond 20W-50.png" />
+    <Content Include="img\products\Optimo-Platinum.jpg" />
+    <Content Include="img\products\Optimo-Titanium.jpg" />
+    <Content Include="img\products\truck-product.png" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Content\fonts\slick.eot" />
+    <Content Include="Content\fonts\slick.ttf" />
+    <Content Include="Content\fonts\slick.woff" />
+    <Content Include="fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Scripts\CustomJs\custom.js" />
+    <Content Include="Scripts\ThirdPartyJs\animate.js" />
+    <Content Include="Scripts\ThirdPartyJs\bootstrap.js" />
+    <Content Include="Scripts\ThirdPartyJs\bootstrap.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\camera\camera.js" />
+    <Content Include="Scripts\ThirdPartyJs\camera\setting.js" />
+    <Content Include="Scripts\ThirdPartyJs\client-slider.js" />
+    <Content Include="Scripts\ThirdPartyJs\easyzoom.js" />
+    <Content Include="Scripts\ThirdPartyJs\flickity.pkgd.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\google-code-prettify\prettify.css" />
+    <Content Include="Scripts\ThirdPartyJs\google-code-prettify\prettify.js" />
+    <Content Include="Scripts\ThirdPartyJs\inview.js" />
+    <None Include="Scripts\ThirdPartyJs\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery-1.9.1.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.bxslider.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.cslider.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.easing.1.3.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.flexslider.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.prettyPhoto.js" />
+    <None Include="Scripts\ThirdPartyJs\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.validate.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.validate.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\ThirdPartyJs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ThirdPartyJs\modernizr.custom.js" />
+    <Content Include="Scripts\ThirdPartyJs\owl.carousel.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\portfolio\jquery.quicksand.js" />
+    <Content Include="Scripts\ThirdPartyJs\portfolio\setting.js" />
+    <Content Include="Scripts\ThirdPartyJs\slick.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\toucheffects.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -157,11 +316,17 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ProductCategory.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\SubCategory.cshtml" />
+    <Content Include="Views\NotFound\Index.cshtml" />
+    <Content Include="Views\Partial\_ourclients.cshtml" />
+    <Content Include="Views\Partial\_specialpriceadds.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -172,13 +337,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\ThirdPartyJs\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MZ.BusinessLayer\MZ.BusinessLayer.csproj">
+      <Project>{6703aa88-dceb-440a-bfe5-02b0a02d2d19}</Project>
+      <Name>MZ.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MZ.Models\MZ.Models.csproj">
+      <Project>{368d8c06-49ce-438f-bf46-25ea0c32038e}</Project>
+      <Name>MZ.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
