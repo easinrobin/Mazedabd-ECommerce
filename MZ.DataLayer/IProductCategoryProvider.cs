@@ -14,6 +14,5 @@ namespace MZ.DataLayer
         long InsertProductCategory(ProductCategory category);
         bool UpdateProductCategory(ProductCategory category);
         bool DeleteProductCategory(long Id);
-
     }
 }

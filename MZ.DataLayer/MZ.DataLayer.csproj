@@ -46,6 +46,10 @@
     <Compile Include="IFeedbackProvider.cs" />
     <Compile Include="IHomeProvider.cs" />
     <Compile Include="IProductCategoryProvider.cs" />
+    <Compile Include="IProductGalleryProvider.cs" />
+    <Compile Include="IProductProvider.cs" />
+    <Compile Include="IServiceProvider.cs" />
+    <Compile Include="IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

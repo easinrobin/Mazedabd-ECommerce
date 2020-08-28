@@ -14,5 +14,6 @@ namespace MZ.DataLayer
         long InsertFeedback(Feedback feedback);
         bool UpdateFeedback(Feedback feedback);
         bool DeleteFeedback(long Id);
+
     }
 }
