@@ -1,4 +1,4 @@
-﻿@model TW.Models.PublicViewModel
+﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "Home";
     var imagePath = "http://twadmin.thebyteheart.com/" + Model.CompanySetting.ImgUrl;
@@ -117,65 +117,6 @@
 
 <section id="content" class="alt-bg">
     <div class="container">
-
-
-        <div class="row">
-            @{
-                var j = 1;
-            }
-            @foreach (var data in Model.OurMachines)
-            {
-                var imagepath = "http://twadmin.thebyteheart.com/" + data.ImageUrl;
-                if (j == 1)
-                {
-                    <div class="span4">
-                        <div class="service-box machine-box aligncenter flyIn">
-                            <h5>@Html.Raw(data.MachineName)</h5>
-                            <div class="icon">
-                                <img src="@imagepath" alt="" />
-                            </div>
-                            <p>
-                                @Html.Raw(data.Description)
-                            </p>
-                        </div>
-                    </div>
-                }
-                else if (j == 2)
-                {
-                    <div class="span4">
-                        <div class="service-box machine-box aligncenter flyIn">
-                            <h5>@Html.Raw(data.MachineName)</h5>
-                            <div class="icon">
-                                <img src="@imagepath" alt="" />
-                            </div>
-
-                            <p>
-                                @Html.Raw(data.Description)
-                            </p>
-
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="span4">
-                        <div class="service-box machine-box aligncenter flyIn">
-                            <h5>@Html.Raw(data.MachineName)</h5>
-                            <div class="icon">
-                                <img src="@imagepath" alt="" />
-                            </div>
-
-                            <p>
-                                @Html.Raw(data.Description)
-                            </p>
-
-                        </div>
-                    </div>
-                }
-                j++;
-            }
-        </div>
-
         <div class="row">
             <div class="span12">
                 <div class="cta-box">
@@ -218,7 +159,7 @@
             <div class="span12">
                 <h4 class="title">Product <strong><span class="colored">Categories</span></strong></h4>
                 <div class="row">
-                    @foreach (var cat in Model.ProjectCategories)
+                    @foreach (var cat in Model.ProductCategories)
                     {
                         //var imagepath = "http://twadmin.thebyteheart.com/" + cat.ImageUrl;
                         var imagepath = cat.ImageUrl;

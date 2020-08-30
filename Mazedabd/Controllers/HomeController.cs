@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -286,6 +287,15 @@ namespace Mazedabd.Controllers
             }
 
             return RedirectToAction("Contact");
+        }
+
+        public ActionResult Gallery()
+        {
+            PublicViewModel pv = new PublicViewModel();
+            pv.ImageGalleries = NewsEventsManager.GetAllImageGallery();
+            pv.VideoGalleries = NewsEventsManager.GetAllVideoGallery();
+            
+            return View(pv);
         }
 
         public bool HasBadWords(string inputWords)

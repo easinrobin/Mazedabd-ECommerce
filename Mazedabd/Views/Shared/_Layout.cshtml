@@ -1,9 +1,9 @@
 ﻿@{
-    TW.Models.CompanySetting companySetting = (TW.Models.CompanySetting)Session["CompanySetting"];
+    MZ.Models.CompanySetting companySetting = (MZ.Models.CompanySetting)Session["CompanySetting"];
 
     if (companySetting == null)
     {
-        companySetting = TW.BusinessLayer.CompanySettingsManager.GetCompanySettings(1);
+        companySetting = MZ.BusinessLayer.CompanySettingsManager.GetCompanySettings(1);
         Session["CompanySetting"] = companySetting;
     }
 

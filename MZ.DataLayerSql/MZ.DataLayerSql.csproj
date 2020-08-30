@@ -48,6 +48,7 @@
     <Compile Include="SqlCompanySettingsProvider.cs" />
     <Compile Include="SqlFeedbackProvider.cs" />
     <Compile Include="SqlHomeProvider.cs" />
+    <Compile Include="SqlNewsEventsProvider.cs" />
     <Compile Include="SqlProductCategoryProvider.cs" />
     <Compile Include="SqlProductGalleryProvider.cs" />
     <Compile Include="SqlProductProvider.cs" />

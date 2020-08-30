@@ -1,0 +1,82 @@
+﻿@model MZ.Models.PublicViewModel
+@{
+    ViewBag.Title = "Gallery";
+}
+
+
+<section id="gallery-content ">
+    <div class="container">
+        <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div>
+        <div id="tzcontent">
+            <div class="galleryTab">
+                <p><i class="icon-filter"></i>Filter: </p>
+                <button class="galleryTablinks" onclick="openGallery(event, 'images')">Images</button>
+                <button class="galleryTablinks" onclick="openGallery(event, 'videos')">Videos</button>
+            </div>
+
+            <div onclick="openGallery(event, 'images')" id="images" class="galleryTabcontent">
+                <div class="grid cs-style-4 ">
+                    <div class="tz-gallery">
+                        <div class="row" id="imges">
+                            @if (Model.ImageGalleries.Any())
+                            {
+                                foreach (var data in Model.ImageGalleries)
+                                {
+                                    //var imagePath = "http://twadmin.thebyteheart.com/" + data.ImagePath;
+                                    var imagePath = data.ImagePath;
+                                    <div class="span3">
+                                        <div class="thumbnail">
+                                            <a class="lightbox" href="@imagePath">
+                                                <img src="@imagePath" alt="@data.ImageTitle" class="galleryImg">
+                                            </a>
+                                            <p style="margin-top: 10px; text-align: left"><b>Title:</b> @data.ImageTitle</p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="videos" class="galleryTabcontent">
+                <div class="grid cs-style-4 ">
+                    <div class="row">
+                        @if (Model.VideoGalleries.Any())
+                        {
+                            foreach (var item in Model.VideoGalleries)
+                            {
+                                var path = "https://www.youtube.com/embed/" + item.VideoPath;
+                                <div class="span4">
+                                    <iframe style="height: 200px; width: 100%" src="@path" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <p>Title: @item.VideoTitle</p>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function openGallery(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("galleryTabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("galleryTablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("images").click();
+</script>

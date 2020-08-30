@@ -48,6 +48,7 @@
     <Compile Include="Banner.cs" />
     <Compile Include="CompanySetting.cs" />
     <Compile Include="Feedback.cs" />
+    <Compile Include="ImageGallery.cs" />
     <Compile Include="OurClient.cs" />
     <Compile Include="OurService.cs" />
     <Compile Include="Product.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicViewModel.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="VideoGallery.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,6 +17,10 @@ namespace MZ.Models
         public ProductSubCategory ProductSubCategory { get; set; }
         public Product Product { get; set; }
         public List<ProductGallery> ProductGalleries { get; set; }
+        public ImageGallery ImageGallery { get; set; }
+        public List<ImageGallery> ImageGalleries { get; set; }
+        public VideoGallery VideoGallery { get; set; }
+        public List<VideoGallery> VideoGalleries { get; set; }
         public Feedback Feedback { get; set; }
     }
 }

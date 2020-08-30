@@ -85,11 +85,26 @@ namespace MZ.DataLayerSql
         public static string GetAllProductsByCategoryId = "sp_GetProductsByCategoryId";
         public static string GetAllProductsBySubCategoryId = "sp_GetProductsBySubCategoryId";
         public static string GetAllProductGalleriesByProductId = "sp_GetProductGalleriesByProductId";
+
         // Feedback
         public static string GetAllFeedback = "sp_GetFeedback";
         public static string GetFeedbackById = "sp_GetFeedbackDetails";
         public static string InsertFeedback = "sp_InsertFeedback";
         public static string UpdateFeedback = "sp_UpdateFeedback";
         public static string DeleteFeedback = "sp_DeleteFeedback";
+
+        //ImageGallery
+        public static string GetAllImageGallery = "sp_GetImageGallery";
+        public static string GetImageGalleryById = "sp_GetImageGalleryDetails";
+        public static string InsertImageGallery = "sp_InsertImageGallery";
+        public static string UpdateImageGallery = "sp_UpdateImageGallery";
+        public static string DeleteImageGallery = "sp_DeleteImageGallery";
+
+        //VideoGallery
+        public static string GetAllVideoGallery = "sp_GetVideoGallery";
+        public static string GetVideoGalleryById = "sp_GetVideoGalleryDetails";
+        public static string InsertVideoGallery = "sp_InsertVideoGallery";
+        public static string UpdateVideoGallery = "sp_UpdateVideoGallery";
+        public static string DeleteVideoGallery = "sp_DeleteVideoGallery";
     }
 }

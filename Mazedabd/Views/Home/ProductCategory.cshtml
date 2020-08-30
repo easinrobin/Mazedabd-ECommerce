@@ -1,4 +1,4 @@
-﻿@model TW.Models.PublicViewModel
+﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "Product Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -27,14 +27,14 @@
 <section id="service-content">
     <div class="container">
         <div class="row">
-            @foreach (var data in Model.ProjectCategories)
+            @foreach (var item in Model.ProductCategories)
             {
                 //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
-                var imagepath = @data.ImageUrl;
+                var imagepath = item.ImageUrl;
                 <div class="span3">
-                    <a href="/Home/SubCategory/@data.Id">
+                    <a href="/Home/SubCategory/@item.Id">
                         <div class="service-box service-page-box aligncenter flyIn">
-                            <h5>@Html.Raw(data.Name)</h5>
+                            <h5>@Html.Raw(item.Name)</h5>
                             <div class="icon">
                                 <img src="@imagepath" alt="" />
                             </div>

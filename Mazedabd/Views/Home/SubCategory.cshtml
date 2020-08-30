@@ -1,9 +1,9 @@
-﻿@model TW.Models.PublicViewModel
+﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "Product Category";
-    var catName = Model.ProjectCategory != null ? Model.ProjectCategory.Name : "Not Found";
+    var catName = Model.ProductCategory != null ? Model.ProductCategory.Name : "Not Found";
 }
-@Html.HiddenFor(x => Model.ProjectCategory.Id)
+@Html.HiddenFor(x => Model.ProductCategory.Id)
 <style>
     .service-box {
         margin-bottom: 30px;
@@ -29,9 +29,9 @@
 <section id="service-content">
     <div class="container">
         <div class="row">
-            @if (Model.ProjectSubCategories.Any() && Model.ProjectSubCategories.Count > 0)
+            @if (Model.ProductSubCategories.Any() && Model.ProductSubCategories.Count > 0)
             {
-                foreach (var data in Model.ProjectSubCategories)
+                foreach (var data in Model.ProductSubCategories)
                 {
                     //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
                     var imagepath = @data.ImageUrl;

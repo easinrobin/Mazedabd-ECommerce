@@ -566,8 +566,11 @@ select.selectmenu {
         height: auto;
     }
 
+.galleryImg {
+    height: 150px !important;
+    width: 250px !important;
+}
 /* --- Call to action --- */
-
 .cta-box {
     background: #fcfcfc;
     -webkit-border-radius: 2px;
@@ -3528,8 +3531,8 @@ baguetteBox-overlay .full-image img {
 }
 
 .tz-gallery {
-    padding-left: 20px;
-    padding-top: 50px;
+    padding-left: 5px;
+    padding-top: 10px;
 }
 
 
@@ -3981,5 +3984,66 @@ baguetteBox-overlay .full-image img {
 
     .testimonial-active.owl-carousel .owl-nav {
         bottom: 30px;
+    }
+}
+
+/*Tabs*/
+
+/* Style the tab */
+.galleryTab {
+    margin-top: 30px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+    /* Style the buttons inside the tab */
+    .galleryTab button, .galleryTab p {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px !important;
+        transition: 0.3s;
+        font-size: 17px;
+        margin: 0;
+    }
+
+        /* Change background color of buttons on hover */
+        .galleryTab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .galleryTab button.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.galleryTabcontent {
+    display: none;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    margin-top: 20px;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

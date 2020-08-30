@@ -1,7 +1,7 @@
 ﻿@using reCAPTCHA.MVC
-@model TW.Models.PublicViewModel
+@model MZ.Models.PublicViewModel
 @{
-    ViewBag.Title = "Projects";
+    ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,7 +15,7 @@
                         <li><a href="/Home/ProductCategory">Product Category</a> <i class="icon-angle-right"></i></li>
                         <li class="active">Products</li>
                     </ul>
-                    <h2>@Html.Raw(Model.Project.ProjectName)</h2>
+                    <h2>@Html.Raw(Model.Product.ProductName)</h2>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
 </section>
 
 @{
-    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @Model.Project.ImageUrl;
-    var imagepath = @Model.Project.ImageUrl;
+    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @Model.Product.ImageUrl;
+    var imagepath = @Model.Product.ImageUrl;
 
     var i = 2;
     var j = 2;
@@ -43,7 +43,7 @@
                                     </a>
                                 </div>
                             </div>
-                            @foreach (var item in Model.ProjectGalleries)
+                            @foreach (var item in Model.ProductGalleries)
                             {
                                 var imgId = "pro-details" + i.ToString();
                                 var galleryImage = item.ImageUrl;
@@ -51,7 +51,7 @@
                                 <div class="tab-pane" id="@imgId">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="@galleryImage">
-                                            <img src="@galleryImage" alt="@item.ProjectId">
+                                            <img src="@galleryImage" alt="@item.ProductId">
                                         </a>
                                     </div>
                                 </div>
@@ -62,13 +62,13 @@
                             <a class="active" href="#pro-details1">
                                 <img src="@imagepath" alt="test">
                             </a>
-                            @foreach (var item in Model.ProjectGalleries)
+                            @foreach (var item in Model.ProductGalleries)
                             {
                                 var imgId = "pro-details" + j.ToString();
                                 var galleryImage = item.ImageUrl;
 
                                 <a class="active" href="#@imgId">
-                                    <img src="@galleryImage" alt="@item.ProjectId">
+                                    <img src="@galleryImage" alt="@item.ProductId">
                                 </a>
                                 j++;
                             }
@@ -78,25 +78,25 @@
             </div>
             <div class="span6">
                 <div class="product-details-content">
-                    <h2>@Model.Project.ProjectName</h2>
-                    @if (!string.IsNullOrEmpty(Model.Project.DiscountPrice.ToString()) && Model.Project.DiscountPrice > 0)
+                    <h2>@Model.Product.ProductName</h2>
+                    @if (!string.IsNullOrEmpty(Model.Product.DiscountPrice.ToString()) && Model.Product.DiscountPrice > 0)
                     {
                         <div class="product-price">
-                            Price: <span class="strikeText">৳ @Model.Project.Price</span>
+                            Price: <span class="strikeText">৳ @Model.Product.Price</span>
                         </div>
                         <div class="product-price">
-                            Discount Price: <span>৳ @Model.Project.DiscountPrice</span>
+                            Discount Price: <span>৳ @Model.Product.DiscountPrice</span>
                         </div>
                     }
                     else
                     {
                         <div class="product-price">
-                            <span>৳ @Model.Project.Price</span>
+                            <span>৳ @Model.Product.Price</span>
                         </div>
                     }
                     <div class="product-overview">
                         <h5 class="pd-sub-title">Product Overview</h5>
-                        <p>@Html.Raw(Model.Project.Description)</p>
+                        <p>@Html.Raw(Model.Product.Description)</p>
                     </div>
                     @*<div class="product-share">
                         <h5 class="pd-sub-title">Share</h5>
@@ -125,12 +125,12 @@
                 }
                 @using (Html.BeginForm("ProductDetails", "Home", FormMethod.Post, new { @class = "contactForm" }))
                 {
-                    @Html.HiddenFor(x => x.Project.ProjectName)
-                    @Html.HiddenFor(x => x.Project.Id)
-                    @Html.HiddenFor(x => x.Project.Price)
-                    @Html.HiddenFor(x => x.Project.DiscountPrice)
-                    @Html.HiddenFor(x => x.Project.Description)
-                    @Html.HiddenFor(x => x.Project.ImageUrl)
+                    @Html.HiddenFor(x => x.Product.ProductName)
+                    @Html.HiddenFor(x => x.Product.Id)
+                    @Html.HiddenFor(x => x.Product.Price)
+                    @Html.HiddenFor(x => x.Product.DiscountPrice)
+                    @Html.HiddenFor(x => x.Product.Description)
+                    @Html.HiddenFor(x => x.Product.ImageUrl)
 
                     <div class="row">
                         <div class="span4 form-group field">

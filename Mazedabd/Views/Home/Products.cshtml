@@ -1,9 +1,9 @@
-﻿@model TW.Models.PublicViewModel
+﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Html.HiddenFor(x => Model.ProjectSubCategory.Id)
+@Html.HiddenFor(x => Model.ProductSubCategory.Id)
 <section id="inner-headline">
     <div class="container">
         <div class="row">
@@ -24,16 +24,16 @@
 <section id="project-details">
     <div class="container">
         <div class="row">
-            @if (Model.Projects.Any() && Model.Projects.Count > 0)
+            @if (Model.Products.Any() && Model.Products.Count > 0)
             {
-                foreach (var cat in Model.Projects)
+                foreach (var cat in Model.Products)
                 {
                     //var imagePath = "http://adminmzbd.thebyteheart.com/" + cat.ImageUrl;
                     var imagePath = cat.ImageUrl;
                     <div class="span4 box-project">
                         <a href="/Home/ProductDetails?id=@cat.Id">
                             <div class="service-box project-box aligncenter flyIn">
-                                <h5>@Html.Raw(cat.ProjectName)</h5>
+                                <h5>@Html.Raw(cat.ProductName)</h5>
                                 <div class="icon">
                                     <img src="@imagePath" alt="" />
                                 </div>
