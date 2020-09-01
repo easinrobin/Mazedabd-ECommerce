@@ -147,6 +147,40 @@ namespace Mazedabd.Controllers
             return RedirectToAction("Index", "NotFound");
         }
 
+        public ActionResult SearchResult()
+        {
+            return View();
+        }
+
+        public ActionResult News(long? newsId)
+        {
+            PublicViewModel publicViewModel = new PublicViewModel();
+            if (Session["CompanySetting"] != null)
+            {
+                publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
+            }
+            else
+            {
+                publicViewModel.CompanySetting = CompanySettingsManager.GetCompanySettings(1);
+            }
+
+            if (string.IsNullOrEmpty(newsId.ToString()))
+            {
+                publicViewModel.NewsList = NewsEventsManager.GetAllNews();
+                if (publicViewModel.NewsList.Any() && publicViewModel.NewsList.Count > 0)
+                {
+                    publicViewModel.News = publicViewModel.NewsList.FirstOrDefault();
+                }
+            }
+            else
+            {
+                publicViewModel.NewsList = NewsEventsManager.GetAllNews();
+                publicViewModel.News = NewsEventsManager.GetNewsById(newsId);
+            }
+
+            return View(publicViewModel);
+        }
+
         [HttpPost]
         [ValidateInput(false)]
         [CaptchaValidator(

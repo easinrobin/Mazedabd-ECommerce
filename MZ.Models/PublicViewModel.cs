@@ -22,5 +22,8 @@ namespace MZ.Models
         public VideoGallery VideoGallery { get; set; }
         public List<VideoGallery> VideoGalleries { get; set; }
         public Feedback Feedback { get; set; }
+        public Search Search { get; set; }
+        public News News { get; set; }
+        public List<News> NewsList { get; set; }
     }
 }

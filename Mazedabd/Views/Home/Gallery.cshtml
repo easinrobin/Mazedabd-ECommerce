@@ -11,9 +11,8 @@
         </div>
         <div id="tzcontent">
             <div class="galleryTab">
-                <p><i class="icon-filter"></i>Filter: </p>
-                <button class="galleryTablinks" onclick="openGallery(event, 'images')">Images</button>
-                <button class="galleryTablinks" onclick="openGallery(event, 'videos')">Videos</button>
+                <button class="galleryTablinks bottombar border-red" onclick="openGallery(event, 'images')">Images</button>
+                <button class="galleryTablinks bottombar border-red" onclick="openGallery(event, 'videos')">Videos</button>
             </div>
 
             <div onclick="openGallery(event, 'images')" id="images" class="galleryTabcontent">
@@ -77,6 +76,9 @@
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " active";
     }
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("images").click();
+
+    window.onload = function () {
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("images").click();
+    }
 </script>

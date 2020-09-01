@@ -45,6 +45,7 @@
     <Compile Include="ICompanySettingsProvider.cs" />
     <Compile Include="IFeedbackProvider.cs" />
     <Compile Include="IHomeProvider.cs" />
+    <Compile Include="INewsProvider.cs" />
     <Compile Include="IProductCategoryProvider.cs" />
     <Compile Include="IProductGalleryProvider.cs" />
     <Compile Include="IProductProvider.cs" />

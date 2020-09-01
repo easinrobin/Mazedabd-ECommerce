@@ -77,5 +77,39 @@ namespace MZ.BusinessLayer
         }
 
         #endregion
+
+        #region News Events
+
+        public static List<News> GetAllNews()
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.GetAllNews();
+        }
+        public static News GetNewsById(long? id)
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.GetNewsById(id);
+        }
+
+
+        public static bool UpdateNews(News news)
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.UpdateNews(news);
+        }
+
+        public static long InsertNews(News news)
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.InsertNews(news);
+        }
+
+        public static bool DeleteNews(long id)
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.DeleteNews(id);
+        }
+
+        #endregion
     }
 }

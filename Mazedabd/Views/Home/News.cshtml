@@ -1,0 +1,106 @@
+﻿@model MZ.Models.PublicViewModel
+
+@{
+    ViewBag.Title = "News & Events";
+}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/">Home</a> <i class="icon-angle-right"></i></li>
+                        <li class="active">News & Events</li>
+                    </ul>
+                    <h2>News & Events</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.News != null && Model.NewsList.Any())
+{
+    var imagePath = Model.News.ImagePath;
+    var path = "https://www.youtube.com/embed/" + Model.News.VideoPath;
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="span12">
+                                <h4> @Model.News.Title </h4>
+                            </div>
+                            <div class="span8" style="text-align: justify">
+                                @Model.News.ShortDescription
+                            </div>
+                            <div class="span8" style="text-align: justify">
+                                @Model.News.Description
+                            </div>
+
+                            @if (imagePath != null)
+                            {
+                                <div class="span8">
+                                    <img src="@imagePath" alt="" style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px " />
+
+                                </div>
+                            }
+
+                            @if (Model.News.VideoPath != null)
+                            {
+                                <div class="span8">
+                                    <iframe style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px "
+                                            src="@path"></iframe>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="clearfix"></div>
+                    <aside class="right-sidebar">
+
+                        <div class="widget">
+                            <h5 class="widgetheading">News & Events List<span></span></h5>
+                            @foreach (var data in Model.NewsList)
+                            {
+                                //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
+                                var imagepath = @data.ImagePath;
+                                <div class="span3">
+                                    <a href="/Home/News?newsId=@data.Id">
+                                        <div class="aligncenter">
+                                            <h5>@Html.Raw(data.Title)</h5>
+                                            <div>
+                                                <img src="@imagepath" alt="" />
+                                            </div>
+                                            <p style="color: black">@Html.Raw(data.ShortDescription)</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="empty-content">
+                    <div class="span6">
+                        <h3>No news for now. Come back again later.</h3>
+                    </div>
+                    <div class="span6">
+                        <img src="/img/not-found.svg" style="height: 300px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
