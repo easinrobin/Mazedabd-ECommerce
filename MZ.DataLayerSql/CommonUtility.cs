@@ -106,5 +106,12 @@ namespace MZ.DataLayerSql
         public static string InsertVideoGallery = "sp_InsertVideoGallery";
         public static string UpdateVideoGallery = "sp_UpdateVideoGallery";
         public static string DeleteVideoGallery = "sp_DeleteVideoGallery";
+
+        //New Events
+        public static string GetAllNews = "sp_GetNewsEvents";
+        public static string GetNewsById = "sp_GetNewsEventDetails";
+        public static string InsertNews = "sp_InsertNewsEvent";
+        public static string UpdateNews = "sp_UpdateNewsEvent";
+        public static string DeleteNews = "sp_DeleteNewsEvent";
     }
 }

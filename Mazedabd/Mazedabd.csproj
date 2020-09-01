@@ -115,8 +115,9 @@
     <Content Include="img\giphy.gif" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
-    <Content Include="img\logo1.jpg" />
-    <Content Include="img\logo1.png" />
+    <Content Include="img\mz-logo.jpg" />
+    <Content Include="img\nav-bg.jpg" />
+    <Content Include="img\not-found.svg" />
     <Content Include="img\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="img\prettyPhoto\dark_rounded\btnPrevious.png" />
     <Content Include="img\prettyPhoto\dark_rounded\contentPattern.png" />
@@ -253,6 +254,8 @@
     <Content Include="Views\Partial\_specialpriceadds.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
