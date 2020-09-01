@@ -89,18 +89,5 @@
 }
 else
 {
-    <section id="content">
-        <div class="container">
-            <div class="row">
-                <div class="empty-content">
-                    <div class="span6">
-                        <h3>No news for now. Come back again later.</h3>
-                    </div>
-                    <div class="span6">
-                        <img src="/img/not-found.svg" style="height: 300px"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @Html.Partial("~/Views/Partial/_nothingFound.cshtml")
 }

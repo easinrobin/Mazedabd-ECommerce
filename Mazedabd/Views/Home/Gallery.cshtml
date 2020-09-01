@@ -35,6 +35,10 @@
                                     </div>
                                 }
                             }
+                            else
+                            {
+                                @Html.Partial("~/Views/Partial/_nothingFound.cshtml")
+                            }
                         </div>
                     </div>
                 </div>
@@ -53,6 +57,10 @@
                                     <p>Title: @item.VideoTitle</p>
                                 </div>
                             }
+                        }
+                        else
+                        {
+                            @Html.Partial("~/Views/Partial/_nothingFound.cshtml")
                         }
                     </div>
                 </div>

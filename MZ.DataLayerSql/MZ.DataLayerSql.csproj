@@ -52,6 +52,7 @@
     <Compile Include="SqlProductCategoryProvider.cs" />
     <Compile Include="SqlProductGalleryProvider.cs" />
     <Compile Include="SqlProductProvider.cs" />
+    <Compile Include="SqlSearchProvider.cs" />
     <Compile Include="SqlServiceProvider.cs" />
     <Compile Include="SqlUserProvider.cs" />
   </ItemGroup>

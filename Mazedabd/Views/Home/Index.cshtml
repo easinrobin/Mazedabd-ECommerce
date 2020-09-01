@@ -34,7 +34,7 @@
                     <div class="camera_caption fadeFromLeft">
                         <div class="container">
                             <div class="row">
-                                <div class="span6">
+                                <div class="span12">
                                     <h2 class="animated fadeInDown">
                                         <strong>
                                             @Html.Raw(banner.Title)
@@ -45,9 +45,9 @@
                                     </p>
 
                                 </div>
-                                <div class="span6" style="display: none">
-                                    <img src="@imagepath" alt="" class="animated bounceInDown delay1" />
-                                </div>
+                                @*<div class="span6" style="display: none">
+                                        <img src="@imagepath" alt="" class="animated bounceInDown delay1" />
+                                    </div>*@
                             </div>
                         </div>
                     </div>
@@ -59,10 +59,10 @@
                     <div class="camera_caption fadeFromLeft">
                         <div class="container">
                             <div class="row">
-                                <div class="span6" style="display: none">
-                                    <img src="@imagepath" alt="" />
-                                </div>
-                                <div class="span6">
+                                @*<div class="span6" style="display: none">
+                                        <img src="@imagepath" alt="" />
+                                    </div>*@
+                                <div class="span12">
                                     <h2 class="animated fadeInDown">
                                         <strong>
                                             @Html.Raw(banner.Title)
@@ -86,7 +86,7 @@
                         <div class="container">
                             <div class="row">
 
-                                <div class="span6">
+                                <div class="span12">
                                     <h2 class="animated fadeInDown">
                                         <strong>
                                             @Html.Raw(banner.Title)
@@ -96,9 +96,9 @@
                                         @Html.Raw(banner.ShortDescription)
                                     </p>
                                 </div>
-                                <div class="span6" style="display: none">
-                                    <img src="@imagepath" alt="" />
-                                </div>
+                                @*<div class="span6" style="display: none">
+                                        <img src="@imagepath" alt="" />
+                                    </div>*@
 
                             </div>
                         </div>
@@ -115,42 +115,17 @@
 </section>
 <!-- /section featured -->
 
-<section id="content" class="alt-bg">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <div class="cta-box">
-                    <div class="row">
-                        <div class="span8">
-                            <div class="cta-text">
-                                <h2>Special price in very <span>limited</span> times</h2>
-                            </div>
-                        </div>
-                        <div class="span4 flyIn">
-                            <div class="cta-btn">
-                                <a href="javascript:void(0);" class="btn btn-theme">
-                                    <i class="icon-phone"></i>
-                                    @Html.Raw(Model.CompanySetting.MainContactNo)
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+@Html.Partial("~/Views/Partial/_specialpriceadds.cshtml", Model)
+
+@*<section id="speech">
+        <div class="container">
+            <div class="row">
+                <div class="span12 text-center">
+                    <img src="@imagePath" width="550" />
                 </div>
             </div>
         </div>
-
-    </div>
-</section>
-
-@*<section id="speech">
-    <div class="container">
-        <div class="row">
-            <div class="span12 text-center">
-                <img src="@imagePath" width="550" />
-            </div>
-        </div>
-    </div>
-</section>*@
+    </section>*@
 
 
 <section id="works">
@@ -181,5 +156,3 @@
     </div>
 
 </section>
-
-@*@Html.Partial("~/Views/Partial/_ourclients.cshtml", Model)*@

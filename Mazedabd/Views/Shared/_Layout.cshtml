@@ -17,8 +17,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier</title>
-    <meta name="description" content="tradeworld advertising, creative digital sign manufacturer & supplier" />
-    <meta name="title" content="trade world advertising">
+    <meta name="description" content="@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier" />
+    <meta name="title" content="@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier">
     <link rel="icon" href="@Url.Content("~/twaicon.ico")" />
     <link href="https://fonts.googleapis.com/css?family=Handlee|Open+Sans:300,400,600,700,800" rel="stylesheet">
     @Styles.Render("~/Content/ThirdPartyCss/bootstrapcss")
@@ -80,14 +80,14 @@
 
                             <ul class="social-network">
                                 <li>
-                                    <a href="@companySetting.FacebookPageUrl" data-placement="bottom" title="Facebook" target="_blank"><i class="icon-facebook icon-white"></i></a>
+                                    <a href="@companySetting.FacebookPageUrl" data-placement="bottom" title="Facebook" target="_blank"><i class="icon-facebook icon-white fb"></i></a>
                                 </li>
-                                <li><a href="@companySetting.TwitterPageUrl" data-placement="bottom" title="Twitter" target="_blank"><i class="icon-twitter icon-white"></i></a></li>
+                                <li><a href="@companySetting.TwitterPageUrl" data-placement="bottom" title="Twitter" target="_blank"><i class="icon-twitter icon-white twitter"></i></a></li>
                                 <li>
-                                    <a href="@companySetting.YoutubePageUrl" data-placement="bottom" title="Youtube" target="_blank"><i class="icon-youtube-play icon-white"></i></a>
+                                    <a href="@companySetting.YoutubePageUrl" data-placement="bottom" title="Youtube" target="_blank"><i class="icon-youtube-play icon-white yt"></i></a>
                                 </li>
                                 <li>
-                                    <a href="@companySetting.GooglePlusPageUrl" data-placement="bottom" title="Google +" target="_blank"><i class="icon-google-plus icon-white"></i></a>
+                                    <a href="@companySetting.GooglePlusPageUrl" data-placement="bottom" title="Google +" target="_blank"><i class="icon-google-plus icon-white gplus"></i></a>
                                 </li>
                                 <li>
 
@@ -116,7 +116,7 @@
                                 <li><a href="/Home/About">About</a></li>
                                 <li><a href="/Home/Products">Products</a></li>
                                 <li><a href="/Home/News">News & Events</a></li>
-                                <li><a href="/Home/Gallery">Gallery</a></li>
+                                <li><a href="/Home/Gallery">Media Center</a></li>
                                 <li><a href="/Home/Contact">Contact</a></li>
                             </ul>
 
@@ -134,7 +134,8 @@
         @RenderBody()
 
 
-        <footer>
+        <footer class="top-footer">
+            <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <div class="span4">
@@ -145,7 +146,7 @@
                                 <li><a href="/Home/About">About</a></li>
                                 <li><a href="/Home/Products">Products</a></li>
                                 <li><a href="/Home/News">News & Events</a></li>
-                                <li><a href="/Home/Gallery">Gallery</a></li>
+                                <li><a href="/Home/Gallery">Media Center</a></li>
                                 <li><a href="/Home/Contact">Contact</a></li>
                             </ul>
 
@@ -169,11 +170,12 @@
                                 }
                                 @if (!string.IsNullOrEmpty(companySetting.Email_1))
                                 {
-                                    <i class="icon-envelope-alt"></i> @Html.Raw(companySetting.Email_1)<br>
+                                    <i class="icon-envelope-alt"></i><a href="mailto:@Html.Raw(companySetting.Email_1)"> @Html.Raw(companySetting.Email_1)</a><br>
                                 }
                                 @if (!string.IsNullOrEmpty(companySetting.Email_2))
                                 {
-                                    <i class="icon-envelope-alt"></i> @Html.Raw(companySetting.Email_2)
+                                    <i class="icon-envelope-alt"></i>
+                                    <a href="mailto:@Html.Raw(companySetting.Email_1)"> @Html.Raw(companySetting.Email_2)</a>
                                 }
 
                             </p>
@@ -182,14 +184,16 @@
                     <div class="span4">
                         <ul class="social-network-footer">
                             <li>
-                                <a href="@companySetting.FacebookPageUrl" data-placement="bottom" title="Facebook" target="_blank"><i class="icon-facebook icon-white"></i></a>
-                            </li>
-                            <li><a href="@companySetting.TwitterPageUrl" data-placement="bottom" title="Twitter" target="_blank"><i class="icon-twitter icon-white"></i></a></li>
-                            <li>
-                                <a href="@companySetting.YoutubePageUrl" data-placement="bottom" title="Youtube" target="_blank"><i class="icon-youtube-play icon-white"></i></a>
+                                <a href="@companySetting.FacebookPageUrl" data-placement="bottom" title="Facebook" target="_blank"><i class="icon-facebook icon-white fb"></i></a>
                             </li>
                             <li>
-                                <a href="@companySetting.GooglePlusPageUrl" data-placement="bottom" title="Google +" target="_blank"><i class="icon-google-plus icon-white"></i></a>
+                                <a href="@companySetting.TwitterPageUrl" data-placement="bottom" title="Twitter" target="_blank"><i class="icon-twitter icon-white twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="@companySetting.YoutubePageUrl" data-placement="bottom" title="Youtube" target="_blank"><i class="icon-youtube-play icon-white yt"></i></a>
+                            </li>
+                            <li>
+                                <a href="@companySetting.GooglePlusPageUrl" data-placement="bottom" title="Google +" target="_blank"><i class="icon-google-plus icon-white gplus"></i></a>
                             </li>
                         </ul>
 
@@ -275,21 +279,14 @@
         });
 
         $(function () {
-            debugger;
             // this will get the full URL at the address bar
             var url = window.location.href;
             // passes on every "a" tag
             $(".bottom-menu a").each(function () {
-                //var linkVal = $(this).attr('href');
-                //var absPath = window.location;
-                //var link = absPath + linkVal;
                 // checks if its the same on the address bar
                 if (url == (this.href)) {
                     $(this).closest("li").addClass("active");
                 }
-                //else if (document.referrer == link) {
-                //    $(this).closest("li").addClass("active");
-                //}
             });
         });
 

@@ -187,6 +187,7 @@
     <Content Include="img\category\lub.png" />
     <Content Include="img\category\service-parts.png" />
     <Content Include="img\category\tyres.png" />
+    <Content Include="img\footer-bg.jpg" />
     <Content Include="img\giphy.gif" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
@@ -331,6 +332,7 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Partial\_nothingFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
