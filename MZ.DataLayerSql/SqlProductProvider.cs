@@ -66,7 +66,7 @@ namespace MZ.DataLayerSql
             }
         }
 
-        public List<Product> GetAllProductsByCategoryId(int categoryId)
+        public List<Product> GetAllProductsByCategoryId(long categoryId)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {

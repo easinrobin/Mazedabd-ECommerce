@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using MZ.BusinessLayer;
 using MZ.Models;
 using reCAPTCHA.MVC;
@@ -77,12 +78,21 @@ namespace Mazedabd.Controllers
             {
                 pv.ProductSubCategories = CategoryManager.GetSubCategoryByCategoryId(id);
                 pv.ProductCategory = CategoryManager.GetProductCategoryById(id);
+                if (pv.ProductSubCategories.Count == 0)
+                {
+                    //pv.Products = CategoryManager.GetAllProductsByCategoryId(id);
+                    var routeValues = new RouteValueDictionary {
+                        { "id", id },
+                        { "category", "category" }
+                    };
+                    return RedirectToAction("Products", routeValues);
+                }
                 return View(pv);
             }
             return RedirectToAction("ProductCategory");
         }
 
-        public ActionResult Products(long id = 0)
+        public ActionResult Products(long id = 0, string category = "")
         {
             Session["EmailStatus"] = null;
             PublicViewModel publicViewModel = new PublicViewModel();
@@ -103,7 +113,15 @@ namespace Mazedabd.Controllers
                 }
                 else
                 {
-                    publicViewModel.Products = CategoryManager.GetAllProductsBySubCategoryId(id);
+                    //publicViewModel.ProductSubCategories = CategoryManager.GetSubCategoryByCategoryId(id);
+                    if (category.ToLower() != "category")
+                    {
+                        publicViewModel.Products = CategoryManager.GetAllProductsBySubCategoryId(id);
+                    }
+                    else
+                    {
+                        publicViewModel.Products = CategoryManager.GetAllProductsByCategoryId(id);
+                    }
                 }
 
                 publicViewModel.ProductSubCategory = CategoryManager.GetProductSubCategoryById(id);
@@ -147,7 +165,7 @@ namespace Mazedabd.Controllers
             return View(publicViewModel);
         }
 
-        public ActionResult SearchResult(string searchKey="")
+        public ActionResult SearchResult(string searchKey = "")
         {
             PublicViewModel pv = new PublicViewModel();
             if (!string.IsNullOrEmpty(searchKey))
@@ -335,7 +353,7 @@ namespace Mazedabd.Controllers
             PublicViewModel pv = new PublicViewModel();
             pv.ImageGalleries = NewsEventsManager.GetAllImageGallery();
             pv.VideoGalleries = NewsEventsManager.GetAllVideoGallery();
-            
+
             return View(pv);
         }
 

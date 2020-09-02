@@ -36,7 +36,7 @@ namespace MZ.BusinessLayer
             return provider.DeleteProductCategory(Id);
         }
 
-        public static List<Product> GetAllProductsByCategoryId(int categoryId)
+        public static List<Product> GetAllProductsByCategoryId(long categoryId)
         {
             SqlProductProvider provider = new SqlProductProvider();
             return provider.GetAllProductsByCategoryId(categoryId);
