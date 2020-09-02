@@ -27,7 +27,7 @@ namespace MZ.Models
         public string CreatedBy { get; set; }
 
         [Display(Name = "Created Date")]
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
 
         [Display(Name = "Is Active")]
         public bool IsActive { get; set; }
