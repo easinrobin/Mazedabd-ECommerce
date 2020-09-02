@@ -113,5 +113,9 @@ namespace MZ.DataLayerSql
         public static string InsertNews = "sp_InsertNewsEvent";
         public static string UpdateNews = "sp_UpdateNewsEvent";
         public static string DeleteNews = "sp_DeleteNewsEvent";
+
+        //Search Results
+        public static string GetProductSearchResults = "sp_SearchProductByName";
+        public static string GetNewsSearchResults = "sp_SearchNewsByName";
     }
 }

@@ -3,6 +3,13 @@
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Model.Product == null)
+    {
+        @Html.Partial("~/Views/Partial/_nothingFound.cshtml") 
+        return;
+       
+    }
 }
 
 <section id="inner-headline">
@@ -99,19 +106,19 @@
                         <p>@Html.Raw(Model.Product.Description)</p>
                     </div>
                     @*<div class="product-share">
-                        <h5 class="pd-sub-title">Share</h5>
-                        <ul>
-                            <li>
-                                <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
-                            </li>
-                        </ul>
-                    </div>*@
+                            <h5 class="pd-sub-title">Share</h5>
+                            <ul>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>*@
                 </div>
             </div>
         </div>
@@ -149,7 +156,7 @@
                         </div>
 
                         <div class="span4 form-group">
-                            @Html.Recaptcha(publicKey: "6LcMg8MZAAAAACN7rUGTRZ3bL_J7_ABr-GCvvzl7", theme: CaptchaTheme.Dark,type:CaptchaType.Image)
+                            @Html.Recaptcha(publicKey: "6LcMg8MZAAAAACN7rUGTRZ3bL_J7_ABr-GCvvzl7", theme: CaptchaTheme.Dark, type: CaptchaType.Image)
                             @Html.ValidationMessage("ReCaptcha", new { @class = "red-text" })
                         </div>
 
@@ -164,6 +171,3 @@
         </div>
     </div>
 </div>
-
-
-@*@Html.Partial("~/Views/Partial/_specialpriceadds.cshtml", Model)*@

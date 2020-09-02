@@ -8,6 +8,6 @@ namespace MZ.Models
 {
     public class Search
     {
-        public string SearchTxt { get; set; }
+        public string SearchKey { get; set; }
     }
 }

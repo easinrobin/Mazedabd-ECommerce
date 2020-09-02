@@ -1,0 +1,60 @@
+
+Log Entry : 
+09/02/2020 11:04:08
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: CreatedBy
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 99
+   at MZ.DataLayerSql.SqlProductProvider.GetProductsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlProductProvider.cs:line 53
+__________________________
+
+Log Entry : 
+09/02/2020 11:04:32
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: VideoPath
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 99
+   at MZ.DataLayerSql.SqlNewsEventsProvider.GetNewsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlNewsEventsProvider.cs:line 373
+__________________________
+
+Log Entry : 
+09/02/2020 11:13:45
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: CreatedBy
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 100
+   at MZ.DataLayerSql.SqlProductProvider.GetProductsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlProductProvider.cs:line 53
+__________________________
+
+Log Entry : 
+09/02/2020 11:17:09
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: CreatedBy
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 100
+   at MZ.DataLayerSql.SqlProductProvider.GetProductsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlProductProvider.cs:line 53
+__________________________
+
+Log Entry : 
+09/02/2020 11:23:01
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: IsActive
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 99
+   at MZ.DataLayerSql.SqlProductProvider.GetProductsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlProductProvider.cs:line 53
+__________________________
+
+Log Entry : 
+09/02/2020 11:28:35
+Error in: http://localhost:62779/Home/SearchResult. Error Message:System.IndexOutOfRangeException: VideoPath
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at MZ.Utility.UtilityManager.DataReaderMapToList[T](IDataReader dr) in E:\Projects\MazedaBD\Mazedabd\MZ.Utility\UtilityManager.cs:line 99
+   at MZ.DataLayerSql.SqlNewsEventsProvider.GetNewsBySearchKey(String searchKey) in E:\Projects\MazedaBD\Mazedabd\MZ.DataLayerSql\SqlNewsEventsProvider.cs:line 373
+__________________________

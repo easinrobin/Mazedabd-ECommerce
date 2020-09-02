@@ -144,11 +144,18 @@ namespace Mazedabd.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "NotFound");
+            return View(publicViewModel);
         }
 
-        public ActionResult SearchResult()
+        public ActionResult SearchResult(string searchKey="")
         {
+            PublicViewModel pv = new PublicViewModel();
+            if (!string.IsNullOrEmpty(searchKey))
+            {
+                pv.SearchResults = SearchManager.GetSearchResults(searchKey);
+                return View(pv);
+            }
+
             return View();
         }
 

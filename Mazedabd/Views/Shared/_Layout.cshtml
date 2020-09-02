@@ -66,7 +66,8 @@
                                 <div class="search-container">
                                     @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
                                     {
-                                        @Html.TextBoxFor(x => x.Search.SearchTxt, new { @class = "custom-search", id = "searchleft", placeholder = "Search", type = "" })
+                                        @*@Html.TextBoxFor(x => x.Search.SearchKey, new { @class = "custom-search", id = "searchleft", placeholder = "Search", type = "" })*@
+                                        <input name="searchKey" class="custom-search" id="searchleft" placeholder="Search">
                                         <label class="srcbutton searchbutton" for="searchleft"><span class="mglass">&#9906;</span></label>
                                     }
                                     @*<form action="/Home/SerchResult" method="get">

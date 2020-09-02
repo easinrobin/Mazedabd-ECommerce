@@ -37,6 +37,35 @@ namespace MZ.DataLayerSql
             }
         }
 
+        public List<Product> GetProductsBySearchKey(string searchKey)
+        {
+            using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
+            {
+                List<Product> list = new List<Product>();
+                SqlCommand command = new SqlCommand(StoreProcedure.GetProductSearchResults, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@searchKey", searchKey));
+                try
+                {
+                    connection.Open();
+                    SqlDataReader dataReader = command.ExecuteReader();
+
+                    list = UtilityManager.DataReaderMapToList<Product>(dataReader);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    UtilityManager.WriteLogError(e.ToString());
+                    return list;
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public List<Product> GetAllProductsByCategoryId(int categoryId)
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))

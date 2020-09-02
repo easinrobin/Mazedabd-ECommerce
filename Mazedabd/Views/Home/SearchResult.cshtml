@@ -1,6 +1,40 @@
-﻿
+﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "SearchResult";
 }
 
-@Html.Partial("~/Views/Partial/_nothingFound.cshtml")
+@if (Model.SearchResults != null && Model.SearchResults.Any())
+{
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="search-content">
+                    @foreach (var item in Model.SearchResults)
+                    {
+                        var imgPath = item.ImageUrl;
+
+                        <div class="span8">
+                            <div class="search-item">
+                                <a href="@item.Link">
+                                    <div class="span4 m0">
+                                        <img src="@imgPath" alt="@item.Title"/>
+                                    </div>
+
+                                    <div class="span8 p20">
+                                        <h1>@item.Title</h1>
+                                        <p>@item.ShortDetails</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    Session["SearchNotMatch"] = "No match found. Try something else.";
+    @Html.Partial("~/Views/Partial/_nothingFound.cshtml", Session["SearchNotMatch"])
+}

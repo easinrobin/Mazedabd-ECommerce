@@ -137,6 +137,10 @@ h4.title {
         margin-bottom: 0;
     }
 
+.m0 {
+    margin: 0;
+}
+
 /* ===================================
 3. Responsive media
 ==================================== */
@@ -2006,6 +2010,7 @@ footer {
     background-size: cover;
     background-image: url(/img/footer-bg.jpg);
 }
+
     .top-footer .overlay {
         position: absolute;
         top: 0;
@@ -2016,63 +2021,63 @@ footer {
         background-color: #080A14;
     }
 
-    footer a {
-        color: #eee;
-        text-decoration: none;
-    }
+footer a {
+    color: #eee;
+    text-decoration: none;
+}
 
-        footer a:hover {
-            text-decoration: none;
-        }
-
-    footer h1,
-    footer h2,
-    footer h3,
-    footer h4,
-    footer h5,
-    footer h6 {
-        color: #eee;
-    }
-
-    footer .footer_logo {
-        margin-bottom: 20px;
-    }
-
-        footer .footer_logo h3 {
-            color: #fdfdfd;
-            letter-spacing: -1px;
-            font-size: 2.2em;
-            font-weight: 900;
-            margin: 0;
-        }
-
-            footer .footer_logo h3 a {
-                color: #fdfdfd;
-            }
-
-                footer .footer_logo h3 a:hover {
-                    text-decoration: none;
-                }
-
-    footer address {
-        line-height: 1.6em;
-    }
-
-    footer h5.widgetheading {
-        text-transform: none;
-        font-weight: 600;
-        letter-spacing: -1px;
-        margin-bottom: 20px;
-    }
-
-    footer .widget i {
-        color: #bbb;
-    }
-
-    footer h5 a:hover,
     footer a:hover {
         text-decoration: none;
     }
+
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+    color: #eee;
+}
+
+footer .footer_logo {
+    margin-bottom: 20px;
+}
+
+    footer .footer_logo h3 {
+        color: #fdfdfd;
+        letter-spacing: -1px;
+        font-size: 2.2em;
+        font-weight: 900;
+        margin: 0;
+    }
+
+        footer .footer_logo h3 a {
+            color: #fdfdfd;
+        }
+
+            footer .footer_logo h3 a:hover {
+                text-decoration: none;
+            }
+
+footer address {
+    line-height: 1.6em;
+}
+
+footer h5.widgetheading {
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+footer .widget i {
+    color: #bbb;
+}
+
+footer h5 a:hover,
+footer a:hover {
+    text-decoration: none;
+}
 
 #sub-footer {
     background: #080A14;
@@ -2729,6 +2734,10 @@ ul.the-icons {
         right: 0;
         margin: 0 auto;
     }*/
+
+    .search-item a {
+        flex-direction: column !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2811,11 +2820,16 @@ ul.the-icons {
         margin: 0 auto;
     }*/
 
+    .search-item a {
+        flex-direction: column !important;
+    }
 }
 
 @media (max-width: 360px) {
 
-
+    .search-item a {
+        flex-direction: column !important;
+    }
 
     #baguetteBox-overlay .full-image {
         max-height: 95%;
@@ -3593,6 +3607,10 @@ baguetteBox-overlay .full-image img {
     margin-top: 12px
 }
 
+.p20 {
+    padding: 20px;
+}
+
 /*Product Details*/
 .product-price > .product-price-card {
     font-size: 14px;
@@ -3887,6 +3905,13 @@ baguetteBox-overlay .full-image img {
         padding: 0 16px 0 0;
     }
 
+    .search-item a {
+        flex-direction: column !important;
+    }
+
+    .search-item a img {
+            width: 100% !important;
+        }
     /*.testimonial-active.owl-carousel .owl-nav div {
         left: -11px;
     }
@@ -4306,12 +4331,42 @@ a.site-logo {
 }
 /* mobile breakpoint end */
 
-.empty-content {
+.service-box h5 {
+    height: 40px;
+}
+
+.empty-content, .search-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.search-item a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 0;
+    background: rgb(231, 231, 231);
+    margin: 20px 0;
+    color: #494949;
+}
+
+.search-item:hover {
+    transition: box-shadow .3s;
+    box-shadow: 0 0 11px rgba(33,33,33,.5);
+}
+
+.search-item a h1 {
+    font-size: 20px;
+}
+
+.search-item a img {
+    height: 200px !important;
+    width: 200px;
 }
 
 .fb:hover {

@@ -14,5 +14,6 @@ namespace MZ.DataLayer
         long InsertNews(News news);
         bool UpdateNews(News news);
         bool DeleteNews(long id);
+        List<News> GetNewsBySearchKey(string searchKey);
     }
 }

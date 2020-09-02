@@ -10,6 +10,7 @@ namespace MZ.DataLayer
     public interface IProductProvider
     {
         List<Product> GetAllProduct();
+        List<Product> GetProductsBySearchKey(string searchKey);
         Product GetProductById(long? Id);
         long InsertProduct(Product product);
         bool UpdateProduct(Product products);

@@ -12,6 +12,12 @@ namespace MZ.BusinessLayer
             return provider.GetAllProduct();
         }
 
+        public static List<Product> GetProductsBySearchKey(string searchKey)
+        {
+            SqlProductProvider provider = new SqlProductProvider();
+            return provider.GetProductsBySearchKey(searchKey);
+        }
+
         public static Product GetProductById(long? id)
         {
             SqlProductProvider provider = new SqlProductProvider();

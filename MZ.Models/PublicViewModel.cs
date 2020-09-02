@@ -23,6 +23,7 @@ namespace MZ.Models
         public List<VideoGallery> VideoGalleries { get; set; }
         public Feedback Feedback { get; set; }
         public Search Search { get; set; }
+        public List<SearchItem> SearchResults { get; set; }
         public News News { get; set; }
         public List<News> NewsList { get; set; }
     }

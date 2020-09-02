@@ -85,12 +85,18 @@ namespace MZ.BusinessLayer
             SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
             return provider.GetAllNews();
         }
+
+        public static List<News> GetNewsBySearchkey(string searchKey)
+        {
+            SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
+            return provider.GetNewsBySearchKey(searchKey);
+        }
+
         public static News GetNewsById(long? id)
         {
             SqlNewsEventsProvider provider = new SqlNewsEventsProvider();
             return provider.GetNewsById(id);
         }
-
 
         public static bool UpdateNews(News news)
         {

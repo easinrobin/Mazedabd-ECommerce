@@ -358,6 +358,34 @@ namespace MZ.DataLayerSql
             }
         }
 
+        public List<News> GetNewsBySearchKey(string searchKey)
+        {
+            using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
+            {
+                List<News> newsList = new List<News>();
+                SqlCommand command = new SqlCommand(StoreProcedure.GetNewsSearchResults, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@searchKey", searchKey));
+                try
+                {
+                    connection.Open();
+                    SqlDataReader dataReader = command.ExecuteReader();
+                    newsList = UtilityManager.DataReaderMapToList<News>(dataReader);
+                    return newsList;
+                }
+                catch (Exception e)
+                {
+                    UtilityManager.WriteLogError(e.ToString());
+                    return newsList;
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
 
         public News GetNewsById(long? id)
         {

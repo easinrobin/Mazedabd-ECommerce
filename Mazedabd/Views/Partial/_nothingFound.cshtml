@@ -4,13 +4,25 @@
         <div class="row">
             <div class="empty-content">
                 <div class="span8">
-                    <h3>No content for now. Come back again later.</h3>
-                    <h3>Or checkout our <a href="/Home/Products" class="blue-text">Products</a></h3>
+                    @if (Session["SearchNotMatch"] != null && !string.IsNullOrEmpty(Session["SearchNotMatch"].ToString()))
+                    {
+                        <h3>@Session["SearchNotMatch"]</h3>
+                        <h3>Or checkout our <a href="/Home/Products" class="blue-text">Products</a></h3>
+                    }
+                    else
+                    {
+                        <h3>No content for now. Come back again later.</h3>
+                        <h3>Or checkout our <a href="/Home/Products" class="blue-text">Products</a></h3>
+                    }
                 </div>
                 <div class="span4">
-                    <img src="/img/not-found.svg" style="height: 300px"/>
+                    <img src="/img/not-found.svg" style="height: 300px" />
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+@{
+    Session["SearchNotMatch"] = null;
+}
