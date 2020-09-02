@@ -334,6 +334,7 @@ namespace MZ.DataLayerSql
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
+                List<News> newsList = new List<News>();
                 SqlCommand command = new SqlCommand(StoreProcedure.GetAllNews, connection);
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -341,13 +342,13 @@ namespace MZ.DataLayerSql
                 {
                     connection.Open();
                     SqlDataReader dataReader = command.ExecuteReader();
-                    List<News> newsList = new List<News>();
                     newsList = UtilityManager.DataReaderMapToList<News>(dataReader);
                     return newsList;
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Exception retrieving reviews. " + e.Message);
+                    UtilityManager.WriteLogError(e.ToString());
+                    return newsList;
                 }
 
                 finally
@@ -362,21 +363,22 @@ namespace MZ.DataLayerSql
         {
             using (SqlConnection connection = new SqlConnection(CommonUtility.ConnectionString))
             {
+                News news = new News();
                 SqlCommand command = new SqlCommand(StoreProcedure.GetNewsById, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(new SqlParameter("@Id", id));
-
                 try
                 {
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    News news = new News();
+
                     news = UtilityManager.DataReaderMap<News>(reader);
                     return news;
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Exception retrieving reviews. " + e.Message);
+                    UtilityManager.WriteLogError(e.ToString());
+                    return news;
                 }
                 finally
                 {
@@ -401,7 +403,6 @@ namespace MZ.DataLayerSql
                     {
                         string name = newsInfo.Name;
                         var value = newsInfo.GetValue(news, null);
-
                         command.Parameters.Add(new SqlParameter("@" + name, value == null ? DBNull.Value : value));
                     }
                 }
@@ -413,7 +414,7 @@ namespace MZ.DataLayerSql
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Execption Adding Data. " + ex.Message);
+                    UtilityManager.WriteLogError(ex.ToString());
                 }
                 finally
                 {
@@ -448,7 +449,7 @@ namespace MZ.DataLayerSql
                 catch (Exception e)
                 {
                     isUpdate = false;
-                    throw new Exception("Exception Updating Data." + e.Message);
+                    UtilityManager.WriteLogError(e.ToString());
                 }
                 finally
                 {
@@ -457,7 +458,7 @@ namespace MZ.DataLayerSql
             }
             return isUpdate;
         }
-        
+
         public bool DeleteNews(long id)
         {
             bool isDelete = true;
@@ -475,7 +476,7 @@ namespace MZ.DataLayerSql
                 catch (Exception e)
                 {
                     isDelete = false;
-                    throw new Exception("Exception Updating Data." + e.Message);
+                    UtilityManager.WriteLogError(e.ToString());
                 }
                 finally
                 {

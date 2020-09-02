@@ -27,7 +27,7 @@ namespace Mazedabd.Controllers
                 publicViewModel.CompanySetting = CompanySettingsManager.GetCompanySettings(1);
             }
 
-            publicViewModel.OurClients = ClientManager.GetAllClients();
+            //publicViewModel.OurClients = ClientManager.GetAllClients();
             publicViewModel.Banners = HomeManager.GetAllBanners();
             publicViewModel.ProductCategories = CategoryManager.GetAllProductCategory();
             return View(publicViewModel);

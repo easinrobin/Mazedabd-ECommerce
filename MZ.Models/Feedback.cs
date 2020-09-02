@@ -36,6 +36,6 @@ namespace MZ.Models
         public string Message { get; set; }
 
         [Display(Name = "Created Date")]
-        public string CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
     }
 }
