@@ -16,6 +16,7 @@ namespace MZ.Models
         [Required(ErrorMessage = "Product Category Id required")]
         public int ProductCategoryId { get; set; }
 
+        [Display(Name = "Product Sub Category Id")]
         public int SubCategoryId { get; set; }
 
         [Display(Name = "Product Name")]

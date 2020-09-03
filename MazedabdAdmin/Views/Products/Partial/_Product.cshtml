@@ -1,0 +1,89 @@
+﻿@model MZ.Models.AdminViewModel
+<style>
+    option {
+        background-color: #6f6f6f;
+    }
+</style>
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.ProductName, new { @class = "card-body__title" })
+        @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", placeHolder = "Give a Project Name" })
+        @Html.ValidationMessageFor(model => model.Product.ProductName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.Price, new { @class = "card-body__title" })
+        @Html.TextBoxFor(model => model.Product.Price, new { @class = "form-control", placeHolder = "E.g. Dhaka" })
+        @Html.ValidationMessageFor(model => model.Product.Price, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.DiscountPrice, new { @class = "card-body__title" })
+        @Html.TextBoxFor(model => model.Product.DiscountPrice, new { @class = "form-control", PlaceHolder = "For whom the project was" })
+        @Html.ValidationMessageFor(model => model.Product.DiscountPrice, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.Description, new { @class = "card-body__title" })
+        @Html.TextBoxFor(model => model.Product.Description, new { @class = "form-control", PlaceHolder = "Consultant Contractor" })
+        @Html.ValidationMessageFor(model => model.Product.Description, "", new { @class = "text-danger" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.ShortDetails, new { @class = "card-body__title" })
+        @Html.TextBoxFor(model => model.Product.ShortDetails, new { @class = "form-control", PlaceHolder = "Short details about the project" })
+        @Html.ValidationMessageFor(model => model.Product.ShortDetails, "", new { @class = "text-danger" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductCategory.Name, new { @class = "card-body__title" })
+        @Html.DropDownListFor(model => model.Product.ProductCategoryId, ViewBag.CategoryList as SelectList, "Category Names", new { @class = "form-control ddlbg",id = "category", onchange= "LoadSubcategory(this.value)" })
+        @Html.ValidationMessageFor(model => model.Product.ProductCategoryId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.SubCategoryId, new { @class = "card-body__title" })
+        @Html.DropDownListFor(model => model.Product.SubCategoryId, Enumerable.Empty<SelectListItem>(), "Category Names", new { @class = "form-control ddlbg", id="subCategory" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Product.ImageUrl, new { @class = "card-body__title" })
+        <div class="card">
+            <div class="card-body">
+                <span class="control-label col-md-2">Upload Images:</span>
+                <div class="col-md-10">
+                    @*<input type="file" name="files" id="file" class="btn btn-success" />*@
+                    @Html.TextBoxFor(model => model.File, new { type = "file", id = "file" })
+                    @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <strong>Move to next Tab</strong>
+    </div>
+</div>
+<script>
+    function LoadSubcategory(value) {
+        var category = $("#category").find("option:selected").val();
+        $.ajax({
+            type: "GET",
+            url: "/Products/LoadSubCategoryByCategoryId?id=" + category,
+            contentType: 'application/json; charset=utf-8',
+            success: function(response) {
+                if (response != null) {
+                    var s = '<option value="">Please Select a Sub Category</option>';
+                    for (var i = 0; i < response.length; i++) {  
+                        s += '<option value="' + response[i].Id + '">' + response[i].Name + '</option>';  
+                    }  
+                    $("#subCategory").html(s);
+                }
+            }
+        });
+    }
+</script>

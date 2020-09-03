@@ -241,7 +241,7 @@ namespace MZ.DataLayerSql
                 finally
                 {
                     connection.Close();
-                }
+                } 
             }
         }
 
