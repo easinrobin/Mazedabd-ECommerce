@@ -596,7 +596,7 @@ select.selectmenu {
 .cta-btn {
     float: right;
     padding: 20px;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 .cta-box .cta-btn a.btn {
@@ -1728,6 +1728,11 @@ aside {
 .right-sidebar {
     border-left: 1px solid #e9e9e9;
     padding: 0 0 0 30px;
+}
+
+.right-sidebar-height {
+    height: 100vh;
+    overflow: auto;
 }
 
 .left-sidebar {
@@ -3231,6 +3236,10 @@ div.pp_default .pp_description {
     margin-bottom: 30px;
 }
 
+.service-box-height {
+    height: 364px !important;
+}
+
 .alt-bg-gray {
     background: #ecebeb !important;
     color: #0e0f0f;
@@ -3909,7 +3918,7 @@ baguetteBox-overlay .full-image img {
         flex-direction: column !important;
     }
 
-    .search-item a img {
+        .search-item a img {
             width: 100% !important;
         }
     /*.testimonial-active.owl-carousel .owl-nav div {
@@ -4070,8 +4079,8 @@ baguetteBox-overlay .full-image img {
     font-size: 14px;
     padding-left: 32px;
     padding-right: 32px;
-    height: 50px;
-    line-height: 50px;
+    height: 40px;
+    line-height: 42px;
     text-align: center;
     color: white;
     text-decoration: none;
@@ -4116,6 +4125,7 @@ baguetteBox-overlay .full-image img {
     width: 100%;
     margin: 0;
     padding: 0;
+    margin-top: 5px;
 }
 
 .custom-search:focus + .searchbutton {
@@ -4130,12 +4140,13 @@ baguetteBox-overlay .full-image img {
 .custom-search {
     position: absolute;
     left: 49px; /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
+    top: 5px;
     background-color: white;
     outline: none;
     border: none;
     padding: 0;
     width: 0;
-    height: 100%;
+    height: 80%;
     z-index: 10;
     transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
@@ -4384,3 +4395,18 @@ a.site-logo {
 .gplus:hover {
     color: #db4a39;
 }
+
+
+.news-box {
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
+
+    .news-box h5 {
+        font-weight: 600;
+    }
+
+    .news-box p {
+        margin-top: 10px;
+    }

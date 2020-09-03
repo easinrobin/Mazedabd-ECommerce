@@ -28,60 +28,62 @@
         <div class="container">
             <div class="row">
                 <div class="span8">
-                    <div class="container">
-                        <div class="row">
-                            <div class="span12">
-                                <h4> @Model.News.Title </h4>
-                            </div>
-                            <div class="span8" style="text-align: justify">
-                                @Model.News.ShortDescription
-                            </div>
-                            <div class="span8" style="text-align: justify">
-                                @Model.News.Description
-                            </div>
-
-                            @if (imagePath != null)
-                            {
-                                <div class="span8">
-                                    <img src="@imagePath" alt="" style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px " />
-
-                                </div>
-                            }
-
-                            @if (Model.News.VideoPath != null)
-                            {
-                                <div class="span8">
-                                    <iframe style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px "
-                                            src="@path"></iframe>
-                                </div>
-                            }
+                    <div class="row">
+                        <div class="span12">
+                            <h4> @Model.News.Title </h4>
                         </div>
+                        <div class="span8" style="text-align: justify">
+                            @Model.News.ShortDescription
+                        </div>
+                        <div class="span8" style="text-align: justify">
+                            @Model.News.Description
+                        </div>
+
+                        @if (imagePath != null)
+                        {
+                            <div class="span8">
+                                <img src="@imagePath" alt="" style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px " />
+
+                            </div>
+                        }
+
+                        @if (Model.News.VideoPath != null)
+                        {
+                            <div class="span8">
+                                <iframe style="height: 500px; width: 100%; margin-top: 20px;margin-bottom: 20px "
+                                        src="@path"></iframe>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div class="span4">
-                    <div class="clearfix"></div>
-                    <aside class="right-sidebar">
+                    <aside class="right-sidebar right-sidebar-height">
 
                         <div class="widget">
-                            <h5 class="widgetheading">News & Events List<span></span></h5>
-                            @foreach (var data in Model.NewsList)
-                            {
-                                //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
-                                var imagepath = @data.ImagePath;
+                            <div class="row">
                                 <div class="span3">
-                                    <a href="/Home/News?newsId=@data.Id">
-                                        <div class="aligncenter">
-                                            <h5>@Html.Raw(data.Title)</h5>
-                                            <div>
-                                                <img src="@imagepath" alt="" />
-                                            </div>
-                                            <p style="color: black">@Html.Raw(data.ShortDescription)</p>
-                                        </div>
-                                    </a>
+                                    <h5 class="widgetheading">News & Events</h5>
                                 </div>
-                            }
+                                @foreach (var data in Model.NewsList)
+                                {
+                                    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
+                                    var imagepath = @data.ImagePath;
+                                    <div class="span3">
+                                        <a href="/Home/News?newsId=@data.Id">
+                                            <div class="news-box">
+                                                <h5>@Html.Raw(data.Title)</h5>
+                                                <div>
+                                                    <img src="@imagepath" alt="" />
+                                                </div>
+                                                <p style="color: black">@Html.Raw(data.ShortDescription)</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </aside>
+
                 </div>
             </div>
         </div>

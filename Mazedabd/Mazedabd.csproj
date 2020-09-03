@@ -133,9 +133,11 @@
   <ItemGroup>
     <Content Include="Content\CustomCss\error404.css" />
     <Content Include="Content\CustomCss\style.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\fontawesome\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\slick.svg" />
     <Content Include="Content\ThirdPartyCss\animate.css" />
+    <Content Include="Content\ThirdPartyCss\baguetteBox.min.css" />
     <Content Include="Content\ThirdPartyCss\bootstrap-responsive.css" />
     <Content Include="Content\ThirdPartyCss\bootstrap-responsive.min.css" />
     <Content Include="Content\ThirdPartyCss\bootstrap.css" />
@@ -148,7 +150,10 @@
     <Content Include="Content\ThirdPartyCss\flickity.min.css" />
     <Content Include="Content\ThirdPartyCss\font-awesome-ie7.css" />
     <Content Include="Content\ThirdPartyCss\font-awesome.css" />
+    <Content Include="Content\ThirdPartyCss\font-awesome.min.css" />
     <Content Include="Content\ThirdPartyCss\jquery.bxslider.css" />
+    <Content Include="Content\ThirdPartyCss\jssocials-theme-classic.css" />
+    <Content Include="Content\ThirdPartyCss\jssocials.css" />
     <Content Include="Content\ThirdPartyCss\overwrite.css" />
     <Content Include="Content\ThirdPartyCss\owl.carousel.min.css" />
     <Content Include="Content\ThirdPartyCss\prettify.css" />
@@ -278,6 +283,7 @@
     <Content Include="fonts\fontawesome\FontAwesome.otf" />
     <Content Include="Scripts\CustomJs\custom.js" />
     <Content Include="Scripts\ThirdPartyJs\animate.js" />
+    <Content Include="Scripts\ThirdPartyJs\baguetteBox.min.js" />
     <Content Include="Scripts\ThirdPartyJs\bootstrap.js" />
     <Content Include="Scripts\ThirdPartyJs\bootstrap.min.js" />
     <Content Include="Scripts\ThirdPartyJs\camera\camera.js" />
@@ -288,6 +294,11 @@
     <Content Include="Scripts\ThirdPartyJs\google-code-prettify\prettify.css" />
     <Content Include="Scripts\ThirdPartyJs\google-code-prettify\prettify.js" />
     <Content Include="Scripts\ThirdPartyJs\inview.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\ThirdPartyJs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\ThirdPartyJs\jquery-1.9.1.js" />
     <Content Include="Scripts\ThirdPartyJs\jquery-1.9.1.min.js" />
@@ -302,6 +313,7 @@
     <Content Include="Scripts\ThirdPartyJs\jquery.validate.min.js" />
     <Content Include="Scripts\ThirdPartyJs\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\ThirdPartyJs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\ThirdPartyJs\jssocials.min.js" />
     <Content Include="Scripts\ThirdPartyJs\modernizr-2.8.3.js" />
     <Content Include="Scripts\ThirdPartyJs\modernizr.custom.js" />
     <Content Include="Scripts\ThirdPartyJs\owl.carousel.min.js" />

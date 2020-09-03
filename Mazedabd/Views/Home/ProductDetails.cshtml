@@ -6,9 +6,9 @@
 
     if (Model.Product == null)
     {
-        @Html.Partial("~/Views/Partial/_nothingFound.cshtml") 
+        @Html.Partial("~/Views/Partial/_nothingFound.cshtml")
         return;
-       
+
     }
 }
 
@@ -45,7 +45,7 @@
                         <div class="product-details-large tab-content">
                             <div class="tab-pane active" id="pro-details1">
                                 <div class="easyzoom easyzoom--overlay">
-                                    <a href="@imagepath">
+                                    <a href="javascript:void(0)">
                                         <img src="@imagepath" alt="test">
                                     </a>
                                 </div>
@@ -57,7 +57,7 @@
 
                                 <div class="tab-pane" id="@imgId">
                                     <div class="easyzoom easyzoom--overlay">
-                                        <a href="@galleryImage">
+                                        <a href="javascript:void(0)">
                                             <img src="@galleryImage" alt="@item.ProductId">
                                         </a>
                                     </div>
@@ -105,20 +105,10 @@
                         <h5 class="pd-sub-title">Product Overview</h5>
                         <p>@Html.Raw(Model.Product.Description)</p>
                     </div>
-                    @*<div class="product-share">
-                            <h5 class="pd-sub-title">Share</h5>
-                            <ul>
-                                <li>
-                                    <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>*@
+                    <div class="product-share">
+                        <h5 class="pd-sub-title">Share</h5>
+                        <div id="share"></div>
+                    </div>
                 </div>
             </div>
         </div>
