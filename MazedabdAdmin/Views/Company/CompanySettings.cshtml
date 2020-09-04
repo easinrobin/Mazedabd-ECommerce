@@ -19,15 +19,16 @@
 
 
 <div class="card new-contact">
-    @using (Html.BeginForm("UpdateCompanySettings", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UpdateCompanySettings", "Company", FormMethod.Post, new { enctype = "multipart/form-data", id = "companySettingForm" }))
     {
         @Html.HiddenFor(model => model.CompanySetting.Id)
         @Html.HiddenFor(model => model.CompanySetting.LogoUrl)
         //var imagepath = "http://ss.byteheart.com/" + Model.Banner.ImageUrl;
         <div class="new-contact__header">
 
-            @*@Html.TextBoxFor(model => model.Files, new { type = "file", id = "files", @class = "fa fa-camera new-contact__upload" })*@
-            <input type="file" name="file" id="files" class="zmdi zmdi-camera profile__img__edit" />
+            @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera profile__img__edit" })
+            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            @*<input type="file" name="file" id="files" class="zmdi zmdi-camera profile__img__edit" />*@
 
             <img src="@Model.CompanySetting.LogoUrl" class="new-contact__img" alt="">
         </div>
@@ -71,7 +72,6 @@
                     <div class="form-group">
                         <label>Second Contact Number</label>
                         @Html.TextBoxFor(model => model.CompanySetting.ContactNo, new { @class = "form-control", placeHolder = "E.g. 01X XXXX XXXX" })
-                        @Html.ValidationMessageFor(model => model.CompanySetting.ContactNo, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -87,7 +87,6 @@
                     <div class="form-group">
                         <label>Second Email</label>
                         @Html.TextBoxFor(model => model.CompanySetting.Email_2, new { @class = "form-control", placeHolder = "Second Email Address" })
-                        @Html.ValidationMessageFor(model => model.CompanySetting.Email_2, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -158,7 +157,8 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Update" class="btn btn-light" />
+                    <input type="submit" value="Update" id="formSubmitBtn" class="btn btn-light" />
+                    <input type="button" value="Cancel" id="formCancelBtn" class="btn btn-light" />
                 </div>
             </div>
         </div>

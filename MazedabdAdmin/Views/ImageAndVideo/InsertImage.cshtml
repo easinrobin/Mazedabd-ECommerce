@@ -22,17 +22,19 @@
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("InsertImage", "ImageAndVideo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("InsertImage", "ImageAndVideo", FormMethod.Post, new { enctype = "multipart/form-data", id = "imgVidForm" }))
     {
         @Html.RenderFlashMessages()
         @Html.HiddenFor(model => model.ImageGallery.Id)
         @Html.HiddenFor(model => model.ImageGallery.ImagePath)
+        var imgPath = "http://www.admin.mazeda-bd.com/" + Model.ImageGallery.ImagePath;
         <div class="new-contact__header">
 
-            @*@Html.TextBoxFor(model => model.Files, new { type = "file", id = "files", @class = "fa fa-camera new-contact__upload" })*@
-            <input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />
+            @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera profile__img__edit" })
+            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            @*<input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />*@
 
-            <img src="@Model.ImageGallery.ImagePath" class="new-contact__img" alt="">
+            <img src="@imgPath" class="new-contact__img" alt="">
         </div>
 
         <div class="card-body">

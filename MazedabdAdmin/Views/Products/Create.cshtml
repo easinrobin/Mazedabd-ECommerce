@@ -7,13 +7,13 @@
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
-        <li class="breadcrumb-item"><a href="~/Products/Index">Project</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Add Project</li>
+        <li class="breadcrumb-item"><a href="~/Products/Index">Product</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Product</li>
     </ol>
 </nav>
 
 <header class="content__title">
-    <h1>Add new Project</h1>
+    <h1>Add new Product</h1>
     <div class="actions">
         <a href="~/Products/Index" class="actions__item zmdi zmdi-view-list zmdi-hc-fw" title="Back to List"></a>
         <a href="~/Products/Create" class="actions__item zmdi zmdi-refresh zmdi-hc-fw" title="Refresh"></a>
@@ -26,11 +26,9 @@
         <div class="tab-container">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#product" role="tab">Project</a>
+                    <a class="nav-link" data-toggle="tab" href="#product" role="tab">Product</a>
                 </li>
-                @*<li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#category" role="tab">Category</a>
-                </li>*@
+
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#gallery" role="tab">Gallery</a>
                 </li>
@@ -40,12 +38,10 @@
             {
                 @Html.AntiForgeryToken()
                 <div class="tab-content">
-                    <div class="tab-pane active fade show" id="project" role="tabpanel">
+                    <div class="tab-pane active fade show" id="product" role="tabpanel">
                         @Html.Partial("~/Views/Products/Partial/_Product.cshtml", Model)
                     </div>
-                    @*<div class="tab-pane" id="category" role="tabpanel">
-                        @Html.Partial("~/Views/Projects/Partial/_ProjectCategory.cshtml", Model)
-                    </div>*@
+
                     <div class="tab-pane " id="gallery" role="tabpanel">
                         @Html.Partial("~/Views/Products/Partial/_Gallery.cshtml", Model)
                     </div>

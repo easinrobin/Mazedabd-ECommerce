@@ -143,6 +143,17 @@
     <Content Include="Content\fonts\nunito\nunito-regular.svg" />
     <Content Include="Content\fonts\nunito\nunito-regulard41d.html" />
     <Content Include="Content\fonts\nunito\nunito-semibold.svg" />
+    <Content Include="Content\img\ava1.png" />
+    <Content Include="Content\img\bg\1.jpg" />
+    <Content Include="Content\img\bg\10.jpg" />
+    <Content Include="Content\img\bg\2.jpg" />
+    <Content Include="Content\img\bg\3.jpg" />
+    <Content Include="Content\img\bg\4.jpg" />
+    <Content Include="Content\img\bg\5.jpg" />
+    <Content Include="Content\img\bg\6.jpg" />
+    <Content Include="Content\img\bg\7.jpg" />
+    <Content Include="Content\img\bg\8.jpg" />
+    <Content Include="Content\img\bg\9.jpg" />
     <Content Include="Content\VendorCss\animate.min.css" />
     <Content Include="Content\VendorCss\bootstrap-theme.css" />
     <Content Include="Content\VendorCss\bootstrap-theme.min.css" />
@@ -202,6 +213,7 @@
     <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\CustomJs\app.min.js" />
     <Content Include="Scripts\CustomJs\demo.js" />
+    <Content Include="Scripts\CustomJs\popups.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\flatpickr.min.js" />
@@ -221,6 +233,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\sweetalert2%409.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="Scripts\trumbowyg.min.js" />
     <Content Include="Scripts\ui\icons.svg" />
@@ -236,7 +249,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Category\Categories.cshtml" />
@@ -245,7 +257,6 @@
     <Content Include="Views\Category\SubCategories.cshtml" />
     <Content Include="Views\Company\CompanySettings.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
-    <Content Include="Views\Home\ClientsBanner.cshtml" />
     <Content Include="Views\ImageAndVideo\ImageGallery.cshtml" />
     <Content Include="Views\ImageAndVideo\InsertImage.cshtml" />
     <Content Include="Views\ImageAndVideo\InsertVideo.cshtml" />
@@ -258,7 +269,6 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Partial\_Gallery.cshtml" />
     <Content Include="Views\Products\Partial\_Product.cshtml" />
-    <Content Include="Views\Products\Partial\_ProductCategory.cshtml" />
     <Content Include="Views\Products\UpdateGalleryItem.cshtml" />
     <Content Include="Views\Products\UpdateProduct.cshtml" />
   </ItemGroup>

@@ -187,13 +187,13 @@ namespace MazedabdAdmin.Controllers
 
         private void _Gallery(long productId, AdminViewModel av)
         {
-            if (av != null)
+            if (av.Files != null)
             {
                 foreach (var file in av.Files)
                 {
                     string pathUrl = "";
 
-                    if (file.ContentLength > 0)
+                    if (file != null && file.ContentLength > 0)
                     {
                         string savepath, savefile;
                         var filename = Path.GetFileName(Guid.NewGuid() + file.FileName);
@@ -203,17 +203,17 @@ namespace MazedabdAdmin.Controllers
                         savefile = Path.Combine(savepath, filename);
                         file.SaveAs(savefile);
                         pathUrl = "/img/Offices/" + filename;
-                    }
 
-                    var gallery = new ProductGallery
-                    {
-                        ImageUrl = pathUrl,
-                        ProductId = productId,
-                        IsActive = true,
-                        CreatedBy = "Admin",
-                        CreatedDate = DateTime.Now
-                    };
-                    var galleryId = ProductManager.InsertProductGallery(gallery);
+                        var gallery = new ProductGallery
+                        {
+                            ImageUrl = pathUrl,
+                            ProductId = productId,
+                            IsActive = true,
+                            CreatedBy = "Admin",
+                            CreatedDate = DateTime.Now
+                        };
+                        var galleryId = ProductManager.InsertProductGallery(gallery);
+                    }
                 }
             }
         }

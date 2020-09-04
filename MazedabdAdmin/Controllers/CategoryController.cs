@@ -86,9 +86,6 @@ namespace MazedabdAdmin.Controllers
             return RedirectToAction("Categories");
         }
 
-
-
-
         public ActionResult SubCategories()
         {
             AdminViewModel av = new AdminViewModel();
@@ -163,21 +160,18 @@ namespace MazedabdAdmin.Controllers
             return RedirectToAction("SubCategories");
         }
 
-
-
-
         private string _UploadSingleImage(AdminViewModel adminVwModel, HttpPostedFileBase images)
         {
             var file = adminVwModel.File;
             string pathUrl = "";
             string savepath, savefile;
             var filename = Path.GetFileName(Guid.NewGuid() + file.FileName);
-            savepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img/Images/");
+            savepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img/Uploads/");
             if (!Directory.Exists(savepath))
                 Directory.CreateDirectory(savepath);
             savefile = Path.Combine(savepath, filename);
             file.SaveAs(savefile);
-            pathUrl = "/img/Images/" + filename;
+            pathUrl = "/img/Uploads/" + filename;
             return pathUrl;
         }
 

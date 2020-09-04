@@ -5,7 +5,7 @@
 }
 
 <header class="content__title">
-    <h1>Project List</h1>
+    <h1>Products List</h1>
     <div class="actions">
         <a href="~/Products/Create" class="actions__item zmdi zmdi-plus zmdi-hc-fw" title="Create"></a>
         <a href="~/Products/Index" class="actions__item zmdi zmdi-refresh zmdi-hc-fw" title="Refresh"></a>
@@ -32,32 +32,32 @@
                 <tbody>
                     @foreach (var item in Model.ProductList)
                     {
-                    <tr>
-                        <td>@item.ProductName</td>
-                        <td>@Html.Raw(CategoryManager.GetProductCategoryById(item.ProductCategoryId).Name)</td>
-                        <td>
-                            @if (item.SubCategoryId == 0)
-                            {
-                                <td>@item.SubCategoryId</td>
-                            }
-                            else
-                            {
-                                @Html.Raw(CategoryManager.GetProductSubCategoryById(item.SubCategoryId).Name)   
-                            }
-                           
-                        </td>
-                        @*<td>@item.ProductCategoryId</td>*@
-                        <td>@item.Price</td>
-                        <td>@item.DiscountPrice</td>
-                        <td>
-                            <img src="@item.ImageUrl" width="100" height="100" />
-                        </td>
-                        <td>
-                            @Html.ActionLink(" ", "GetProductImgById", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
-                            @Html.ActionLink(" ", "GalleryList", new { Id = item.Id }, new { @class = "zmdi zmdi-image-o" })<br />
-                            @Html.ActionLink(" ", "DeleteProduct", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
-                        </td>
-                    </tr>
+                        var imgPath = "http://www.admin.mazeda-bd.com/" + item.ImageUrl;
+                        <tr>
+                            <td>@item.ProductName</td>
+                            <td>@Html.Raw(CategoryManager.GetProductCategoryById(item.ProductCategoryId).Name)</td>
+                            <td>
+                                @if (item.SubCategoryId == null || item.SubCategoryId == 0)
+                                {
+                                    @item.SubCategoryId
+                                }
+                                else
+                                {
+                                    @Html.Raw(CategoryManager.GetProductSubCategoryById(item.SubCategoryId.Value).Name)
+                                }
+
+                            </td>
+                            <td>@item.Price</td>
+                            <td>@item.DiscountPrice</td>
+                            <td>
+                                <img src="@imgPath" width="100" height="100" />
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "GetProductImgById", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
+                                @Html.ActionLink(" ", "GalleryList", new { Id = item.Id }, new { @class = "zmdi zmdi-image-o" })<br />
+                                @Html.ActionLink(" ", "DeleteProduct", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

@@ -22,17 +22,19 @@
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("InsertNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("InsertNews", "News", FormMethod.Post, new { enctype = "multipart/form-data", id = "newsForm" }))
     {
         @Html.RenderFlashMessages()
         @Html.HiddenFor(model => model.News.Id)
         @Html.HiddenFor(model => model.News.ImagePath)
+        var imgPath = "http://www.admin.mazeda-bd.com/" + Model.News.ImagePath;
         <div class="new-contact__header">
 
-            @*@Html.TextBoxFor(model => model.Files, new { type = "file", id = "files", @class = "fa fa-camera new-contact__upload" })*@
-            <input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />
+            @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera profile__img__edit" })
+            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            @*<input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />*@
 
-            <img src="@Model.News.ImagePath" class="new-contact__img" alt="">
+            <img src="@imgPath" class="new-contact__img" alt="">
         </div>
 
         <div class="card-body">
@@ -49,48 +51,47 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Short Description</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                        <label>Short Description</label>
                         @Html.TextBoxFor(model => model.News.ShortDescription, new { @class = "form-control", placeholder = "Give a Short Description" })
-                        @Html.ValidationMessageFor(model => model.News.ShortDescription, "", new { @class = "text-danger" })
-
                     </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.News.Description, new { @class = "card-body__title" })
-                    @*@Html.TextAreaFor(model => model.Property.Description, new { @class = "form-control", rows = "3", placeHolder = "Description" })*@
-                    <section id="editor" class="rich-text-box">
-                        @Html.TextAreaFor(model => model.News.Description, new { @id = "wysiwyg-editor", placeHolder = "Description" })
-                        @Html.ValidationMessageFor(model => model.News.Description, "", new { @class = "validation-text" })
-                    </section>
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Video Path</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                        @Html.LabelFor(model => model.News.Description, new { @class = "card-body__title" })
+                        @*@Html.TextAreaFor(model => model.Property.Description, new { @class = "form-control", rows = "3", placeHolder = "Description" })*@
+                        <section id="editor" class="rich-text-box">
+                            @Html.TextAreaFor(model => model.News.Description, new { @id = "wysiwyg-editor", placeHolder = "Description" })
+                            @Html.ValidationMessageFor(model => model.News.Description, "", new { @class = "text-danger" })
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Video Path</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Copy only the video ID from youtube and paste here. E.g. from &quot;https://www.youtube.com/watch?v=o2aQ3k-oArc &quot; copy after &quot;watch?v=&quot; and paste in the text box below" data-toggle="tooltip" data-placement="top"></i></span>
                         @Html.TextBoxFor(model => model.News.VideoPath, new { @class = "form-control", placeholder = "Give Video Link" })
-                        @Html.ValidationMessageFor(model => model.News.VideoPath, "", new { @class = "text-danger" })
 
                     </div>
                 </div>
             </div>
 
             <div class="clearfix"></div>
-
+            
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     @if (Model == null)
                     {
-                        <input type="submit" value="Create" class="btn btn-light" />
+                        <input type="submit" value="Create" id="formSubmitBtn" class="btn btn-light" />
                     }
                     else
                     {
-                        <input type="submit" value="Update" class="btn btn-light" />
+                        <input type="submit" value="Update" id="formSubmitBtn" class="btn btn-light" />
                     }
-
+                    <input type="submit" value="Cancel" id="formCancelBtn" class="btn btn-light" />
                 </div>
             </div>
         </div>

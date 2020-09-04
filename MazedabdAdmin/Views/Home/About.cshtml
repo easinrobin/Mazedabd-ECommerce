@@ -18,17 +18,17 @@
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("UpdateAbout", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UpdateAbout", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "aboutUsForm" }))
     {
         @Html.HiddenFor(model => model.AboutUs.Id)
         @Html.HiddenFor(model => model.AboutUs.ImageUrl)
-        //var imagepath = "http://ss.byteheart.com/" + Model.Banner.ImageUrl;
+        var imagepath = "http://www.admin.mazeda-bd.com/" + Model.AboutUs.ImageUrl;
         <div class="new-contact__header">
 
-            @*@Html.TextBoxFor(model => model.Files, new { type = "file", id = "files", @class = "fa fa-camera new-contact__upload" })*@
-            <input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />
+            @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera profile__img__edit" })
+            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
 
-            <img src="@Model.AboutUs.ImageUrl" class="new-contact__img" alt="">
+            <img src="@imagepath" class="new-contact__img" alt="">
         </div>
 
         <div class="card-body">
@@ -61,15 +61,16 @@
                 <div class="col-md-offset-2 col-md-10">
                     @if (Model == null)
                     {
-                        <input type="submit" value="Create" class="btn btn-light" />
+                        <input type="submit" value="Create" id="formSubmitBtn" class="btn btn-light" />
                     }
                     else
                     {
-                        <input type="submit" value="Update" class="btn btn-light" />
+                        <input type="submit" value="Update" id="formSubmitBtn" class="btn btn-light" />
                     }
-
+                    <input type="button" value="Cancel" id="formCancelBtn" class="btn btn-light" />
                 </div>
             </div>
         </div>
     }
 </div>
+

@@ -21,7 +21,7 @@
 
 @if (Model.News != null && Model.NewsList.Any())
 {
-    var imagePath = Model.News.ImagePath;
+    var imagePath = "http://www.admin.mazeda-bd.com/" + Model.News.ImagePath;
     var path = "https://www.youtube.com/embed/" + Model.News.VideoPath;
 
     <section id="content">
@@ -30,13 +30,13 @@
                 <div class="span8">
                     <div class="row">
                         <div class="span12">
-                            <h4> @Model.News.Title </h4>
+                            <h4> @Html.Raw(Model.News.Title) </h4>
                         </div>
                         <div class="span8" style="text-align: justify">
-                            @Model.News.ShortDescription
+                            @Html.Raw(Model.News.ShortDescription)
                         </div>
                         <div class="span8" style="text-align: justify">
-                            @Model.News.Description
+                            @Html.Raw(Model.News.Description)
                         </div>
 
                         @if (imagePath != null)
@@ -66,8 +66,7 @@
                                 </div>
                                 @foreach (var data in Model.NewsList)
                                 {
-                                    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
-                                    var imagepath = @data.ImagePath;
+                                    var imagepath = "http://www.admin.mazeda-bd.com/" + @data.ImagePath;
                                     <div class="span3">
                                         <a href="/Home/News?newsId=@data.Id">
                                             <div class="news-box">

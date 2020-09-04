@@ -9,7 +9,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Product.ProductName, new { @class = "card-body__title" })
-        @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", placeHolder = "Give a Project Name" })
+        @Html.TextBoxFor(model => model.Product.ProductName, new { @class = "form-control", placeHolder = "Give Products Name" })
         @Html.ValidationMessageFor(model => model.Product.ProductName, "", new { @class = "text-danger" })
     </div>
 
@@ -69,6 +69,12 @@
     </div>
 </div>
 <script>
+
+    window.onload = function () {
+        var category = $("#category").find("option:selected").val();
+        LoadSubcategory(category);
+    }
+
     function LoadSubcategory(value) {
         var category = $("#category").find("option:selected").val();
         $.ajax({

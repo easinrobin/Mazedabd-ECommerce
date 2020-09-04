@@ -1,6 +1,6 @@
 ﻿@model MZ.Models.PublicViewModel
 @{
-    ViewBag.Title = "Gallery";
+    ViewBag.Title = "Media Center";
 }
 
 
@@ -23,8 +23,8 @@
                             {
                                 foreach (var data in Model.ImageGalleries)
                                 {
-                                    //var imagePath = "http://twadmin.thebyteheart.com/" + data.ImagePath;
-                                    var imagePath = data.ImagePath;
+                                    var imagePath = "http://www.admin.mazeda-bd.com/" + data.ImagePath;
+                                    //var imagePath = data.ImagePath;
                                     <div class="span3">
                                         <div class="thumbnail">
                                             <a class="lightbox" href="@imagePath">
