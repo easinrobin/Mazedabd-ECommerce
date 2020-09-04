@@ -29,7 +29,10 @@ namespace MZ.Models
 
         public News News { get; set; }
         public List<News> NewsList { get; set; }
-
+        public ImageGallery ImageGallery { get; set; }
+        public List<ImageGallery> ImageGalleries { get; set; }
+        public VideoGallery VideoGallery { get; set; }
+        public List<VideoGallery> VideoGalleries { get; set; }
         public ProductSubCategory ProductSubCategory { get; set; }
         public List<ProductSubCategory> ProductSubCategories { get; set; }
 

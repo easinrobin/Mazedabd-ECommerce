@@ -105,7 +105,6 @@ namespace MazedabdAdmin.Controllers
             av.Product.CreatedBy = "Admin";
             av.Product.CreatedDate = DateTime.Today;
             av.Product.ImageUrl = _UploadSingleImage(av, image);
-
             var projectId = ProductManager.InsertProduct(av.Product);
 
             if (projectId > 0)

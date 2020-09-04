@@ -35,7 +35,17 @@
                     <tr>
                         <td>@item.ProductName</td>
                         <td>@Html.Raw(CategoryManager.GetProductCategoryById(item.ProductCategoryId).Name)</td>
-                        <td>@Html.Raw(CategoryManager.GetProductSubCategoryById(item.SubCategoryId).Name)</td>
+                        <td>
+                            @if (item.SubCategoryId == 0)
+                            {
+                                <td>@item.SubCategoryId</td>
+                            }
+                            else
+                            {
+                                @Html.Raw(CategoryManager.GetProductSubCategoryById(item.SubCategoryId).Name)   
+                            }
+                           
+                        </td>
                         @*<td>@item.ProductCategoryId</td>*@
                         <td>@item.Price</td>
                         <td>@item.DiscountPrice</td>

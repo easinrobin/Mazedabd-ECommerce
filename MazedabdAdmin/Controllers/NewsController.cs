@@ -54,7 +54,7 @@ namespace MazedabdAdmin.Controllers
             {
                 if (av.File != null)
                 {
-                    av.Service.ImageUrl = _UploadSingleImage(av, image);
+                    av.News.ImagePath = _UploadSingleImage(av, image);
                 }
 
                 NewsEventsManager.UpdateNews(av.News);
