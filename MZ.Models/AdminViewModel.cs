@@ -27,6 +27,15 @@ namespace MZ.Models
         public OwnerImage OwnerImage { get; set; }
         public SliderBgImgUrl SliderBgImgUrl { get; set; }
 
+        public News News { get; set; }
+        public List<News> NewsList { get; set; }
+        public ImageGallery ImageGallery { get; set; }
+        public List<ImageGallery> ImageGalleries { get; set; }
+        public VideoGallery VideoGallery { get; set; }
+        public List<VideoGallery> VideoGalleries { get; set; }
+        public ProductSubCategory ProductSubCategory { get; set; }
+        public List<ProductSubCategory> ProductSubCategories { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Image Required")]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }
 

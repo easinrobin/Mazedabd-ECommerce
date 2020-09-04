@@ -1,0 +1,54 @@
+﻿@model MZ.Models.AdminViewModel
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="content__title">
+    <h1>News List</h1>
+    <div class="actions">
+        <a href="~/News/InsertNews" class="actions__item zmdi zmdi-plus zmdi-hc-fw" title="Create"></a>
+        <a href="~/News/News" class="actions__item zmdi zmdi-refresh zmdi-hc-fw" title="Refresh"></a>
+    </div>
+</header>
+
+<div class="card">
+    <div class="card-body">
+        <a href="~/News/InsertNews" class="btn btn-light btn--icon-text" title="Create"><i class="zmdi  zmdi-plus-circle-o zmdi-hc-fw"></i> Create New</a>
+
+        <div class="table-responsive">
+            <table id="data-table" class="table">
+                <thead style="color: #ffaa00">
+                    <tr>
+                        <th>Title</th>
+                        <th>Short description</th>
+                        <th>Description</th>
+                        <th>Vedio Link</th>
+                        <th>Image</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.NewsList)
+                    {
+
+                    <tr>
+                        <td>@Html.Raw(@item.Title)</td>
+                        <td>@Html.Raw(@item.ShortDescription)</td>
+                        <td>@Html.Raw(@item.Description)</td>
+                        <td>@Html.Raw(@item.VideoPath)</td>
+                        @* <td>@Html.Raw(@item.IsActive)</td> *@
+                        <td>
+                            <img src="@item.ImagePath" width="100" height="100" />
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "UpdateNews", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
+                            @Html.ActionLink(" ", "DeleteNews", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
