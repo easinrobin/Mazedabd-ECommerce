@@ -26,9 +26,9 @@
         <div class="new-contact__header">
 
             @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera profile__img__edit" })
-            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger", id="imgVal" })
 
-            <img src="@imagepath" class="new-contact__img" alt="">
+            <img src="@imagepath" class="new-contact__img" alt="" id="imgFile">
         </div>
 
         <div class="card-body">
@@ -74,3 +74,13 @@
     }
 </div>
 
+<script>
+    window.onload = function () {
+        debugger; 
+        var imgFile = '@Model.AboutUs.ImageUrl';
+        if (imgFile != null && imgFile !== '') {
+            $('#files').rules("remove", "required");
+            $('#imgVal').hide();
+        }
+    }
+</script>

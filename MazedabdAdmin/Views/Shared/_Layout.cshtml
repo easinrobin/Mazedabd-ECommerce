@@ -14,6 +14,7 @@
     @Styles.Render("~/Content/select2")
     @*@Styles.Render("~/Content/sweetalert2")*@
     @Styles.Render("~/Content/trumbowyg")
+    <link href="~/Content/VendorCss/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/appMin")
     @Styles.Render("~/Content/demo")
     @Scripts.Render("~/bundles/modernizr")
@@ -64,25 +65,17 @@
 
                 <ul class="navigation">
 
-                    <li><a href="/Home/About"><i class="zmdi zmdi-accounts-list"></i>About Us</a></li>
-
-                    <li><a href="/Company/CompanySettings"><i class="zmdi zmdi-city"></i>Company Settings</a></li>
-
-                    <li><a href="/News/News"><i class="zmdi zmdi-accounts"></i>News</a></li>
-
-                    <li><a href="/ImageAndVideo/ImageGallery"><i class="zmdi zmdi-group"></i>Image Gallery</a></li>
-
-                    <li><a href="/ImageAndVideo/VideoGallery"><i class="zmdi zmdi-group"></i>Video Gallery</a></li>
-
-                    <li><a href="/Products/Index"><i class="zmdi zmdi-collection-text"></i>Products</a></li>
-
+                    <li><a href="/Home/About"><i class="fa fa-user-circle" aria-hidden="true"></i>About Us</a></li>
+                    <li><a href="/Home/Banner"><i class="fa fa-window-maximize" aria-hidden="true"></i>Banner</a></li>
+                    <li><a href="/Company/CompanySettings"><i class="fa fa-cogs" aria-hidden="true"></i>Company Settings</a></li>
+                    <li><a href="/News/News"><i class="fa fa-newspaper-o" aria-hidden="true"></i>News</a></li>
+                    <li><a href="/ImageAndVideo/ImageGallery"><i class="fa fa-picture-o" aria-hidden="true"></i>Image Gallery</a></li>
+                    <li><a href="/ImageAndVideo/VideoGallery"><i class="fa fa-video-camera" aria-hidden="true"></i>Video Gallery</a></li>
+                    <li><a href="/Products/Index"><i class="fa fa-briefcase" aria-hidden="true"></i>Products</a></li>
                     <li><a href="/Category/Categories"><i class="zmdi zmdi-collection-text"></i>Products Categories</a></li>
-
                     <li><a href="/Category/SubCategories"><i class="zmdi zmdi-collection-text"></i> Sub Categories</a></li>
-
-                    <li><a href="/Feedback/Index"><i class="zmdi zmdi-thumb-up"></i>Feedback</a></li>
-
-                    <li><a href="/Auth/Logout"><i class="zmdi zmdi-sign-in"></i>Logout</a></li>
+                    <li><a href="/Feedback/Index"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Feedback</a></li>
+                    <li><a href="/Auth/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
 
                 </ul>
             </div>
@@ -92,7 +85,7 @@
 
             @RenderBody()
             <footer class="footer hidden-xs-down">
-                <p>&copy; @DateTime.Now.Year <a href="http://www.mazeda-bd.com/" target="_blank">mazeda bd</a>. Trademarks and brands are the property of their respective owners.</p>
+                <p>&copy; @DateTime.Now.Year <a href="http://www.mazeda-bd.com/" target="_blank">Mazeda bd</a>. Trademarks and brands are the property of their respective owners.</p>
                 <p>Made with <span style="color: red">❤️</span> By <a href="http://byteheart.com/" target="_blank">ByteHeart</a></p>
             </footer>
         </section>
