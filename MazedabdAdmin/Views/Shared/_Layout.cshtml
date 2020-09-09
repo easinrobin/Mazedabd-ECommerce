@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="@Url.Content("~/twaicon.ico")"/>
+    <link rel="icon" href="@Url.Content("~/twaicon.ico")" />
     <title>@ViewBag.Title - mazeda-bd</title>
     @Styles.Render("~/Content/iconic-font")
     @Styles.Render("~/Content/dropzone")
@@ -12,13 +12,14 @@
     @Styles.Render("~/Content/scrollbar")
     @Styles.Render("~/Content/lightgallery")
     @Styles.Render("~/Content/select2")
-    @Styles.Render("~/Content/sweetalert2")
+    @*@Styles.Render("~/Content/sweetalert2")*@
     @Styles.Render("~/Content/trumbowyg")
+    <link href="~/Content/VendorCss/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/appMin")
     @Styles.Render("~/Content/demo")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body data-sa-theme="4">
+<body data-sa-theme="7">
     <main class="main">
         <header class="header">
             <div class="navigation-trigger hidden-xl-up" data-sa-action="aside-open" data-sa-target=".sidebar">
@@ -26,7 +27,7 @@
             </div>
 
             <div class="logo hidden-sm-down">
-                <h1><a href="~/Home/Index">Mazeda bd</a></h1>
+                <h1><a href="~/Home/Index">Mazeda BD Admin</a></h1>
             </div>
 
             <ul class="top-nav">
@@ -47,42 +48,34 @@
 
                 <div class="user">
                     <div class="user__info" data-toggle="dropdown">
-                        <img class="user__img" src="/Content/img/avatar/ava1.png" alt="">
+                        <img class="user__img" src="/Content/img/ava1.png" alt="">
                         <div>
-                                @if (Session["UserName"] != null && Session["Name"] != null)
-                                {
-                                    <div class="user__name">@Session["Name"].ToString()</div>
-                                    <div class="user__email">@Session["UserName"].ToString()</div>
-                                }
-                                else
-                                {
-                                    Response.Redirect("~/Auth/Login");
-                                }
-                            </div>
+                            @if (Session["UserName"] != null && Session["Name"] != null)
+                            {
+                                <div class="user__name">@Session["Name"].ToString()</div>
+                                <div class="user__email">@Session["UserName"].ToString()</div>
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Auth/Login");
+                            }
+                        </div>
                     </div>
                 </div>
 
                 <ul class="navigation">
 
-                    <li><a href="/Home/About"><i class="zmdi zmdi-accounts-list"></i>About Us</a></li>
-
-                    <li><a href="/Company/CompanySettings"><i class="zmdi zmdi-city"></i>Company Settings</a></li>
-
-                    <li><a href="/News/News"><i class="zmdi zmdi-accounts"></i>News</a></li>
-
-                    <li><a href="/ImageAndVideo/ImageGallery"><i class="zmdi zmdi-group"></i>Image Gallery</a></li>
-
-                    <li><a href="/ImageAndVideo/VideoGallery"><i class="zmdi zmdi-group"></i>Video Gallery</a></li>
-
-                    <li><a href="/Products/Index"><i class="zmdi zmdi-collection-text"></i>Products</a></li>
-
+                    <li><a href="/Home/About"><i class="fa fa-user-circle" aria-hidden="true"></i>About Us</a></li>
+                    <li><a href="/Home/Banner"><i class="fa fa-window-maximize" aria-hidden="true"></i>Banner</a></li>
+                    <li><a href="/Company/CompanySettings"><i class="fa fa-cogs" aria-hidden="true"></i>Company Settings</a></li>
+                    <li><a href="/News/News"><i class="fa fa-newspaper-o" aria-hidden="true"></i>News</a></li>
+                    <li><a href="/ImageAndVideo/ImageGallery"><i class="fa fa-picture-o" aria-hidden="true"></i>Image Gallery</a></li>
+                    <li><a href="/ImageAndVideo/VideoGallery"><i class="fa fa-video-camera" aria-hidden="true"></i>Video Gallery</a></li>
+                    <li><a href="/Products/Index"><i class="fa fa-briefcase" aria-hidden="true"></i>Products</a></li>
                     <li><a href="/Category/Categories"><i class="zmdi zmdi-collection-text"></i>Products Categories</a></li>
-
                     <li><a href="/Category/SubCategories"><i class="zmdi zmdi-collection-text"></i> Sub Categories</a></li>
-
-                    <li><a href="/Feedback/Index"><i class="zmdi zmdi-thumb-up"></i>Feedback</a></li>
-
-                    <li><a href="/Auth/Logout"><i class="zmdi zmdi-sign-in"></i>Logout</a></li>
+                    <li><a href="/Feedback/Index"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Feedback</a></li>
+                    <li><a href="/Auth/Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
 
                 </ul>
             </div>
@@ -92,7 +85,7 @@
 
             @RenderBody()
             <footer class="footer hidden-xs-down">
-                <p>&copy; @DateTime.Now.Year <a href="http://www.mazeda-bd.com/" target="_blank">mazeda bd</a>. Trademarks and brands are the property of their respective owners.</p>
+                <p>&copy; @DateTime.Now.Year <a href="http://www.mazeda-bd.com/" target="_blank">Mazeda bd</a>. Trademarks and brands are the property of their respective owners.</p>
                 <p>Made with <span style="color: red">❤️</span> By <a href="http://byteheart.com/" target="_blank">ByteHeart</a></p>
             </footer>
         </section>
@@ -116,11 +109,14 @@
     <script src="~/Scripts/flatpickr.min.js"></script>
     <script src="~/Scripts/lightgallery-all.min.js"></script>
     <script src="~/Scripts/select2.full.min.js"></script>
-    <script src="~/Scripts/sweetalert2.min.js"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>*@
+    @*<script src="~/Scripts/sweetalert2.min.js"></script>*@
+    <script src="~/Scripts/sweetalert2@9.js"></script>
     <script src="~/Scripts/trumbowyg.min.js"></script>
 
     <script src="~/Scripts/CustomJs/app.min.js"></script>
     <script src="~/Scripts/CustomJs/demo.js"></script>
+    <script src="~/Scripts/CustomJs/popups.js"></script>
 
     @RenderSection("scripts", required: false)
     <script>
@@ -141,7 +137,7 @@
         $(function () {
             // this will get the full URL at the address bar
             var url = window.location.href;
-            // passes on every "a" tag 
+            // passes on every "a" tag
             $(".navigation a").each(function () {
                 // checks if its the same on the address bar
                 if (url == (this.href)) {

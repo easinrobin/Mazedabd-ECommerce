@@ -29,8 +29,7 @@
         <div class="row">
             @foreach (var item in Model.ProductCategories)
             {
-                //var imagepath = "http://adminmzbd.thebyteheart.com/" + @data.ImageUrl;
-                var imagepath = item.ImageUrl;
+                var imagepath = "http://www.admin.mazeda-bd.com/" + item.ImageUrl;
                 <div class="span3">
                     <a href="/Home/SubCategory/@item.Id">
                         <div class="service-box service-page-box aligncenter flyIn">

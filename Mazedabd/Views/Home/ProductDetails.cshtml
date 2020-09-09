@@ -30,8 +30,7 @@
 </section>
 
 @{
-    //var imagepath = "http://adminmzbd.thebyteheart.com/" + @Model.Product.ImageUrl;
-    var imagepath = @Model.Product.ImageUrl;
+    var imagepath = "http://www.admin.mazeda-bd.com/" + @Model.Product.ImageUrl;
 
     var i = 2;
     var j = 2;
@@ -53,7 +52,7 @@
                             @foreach (var item in Model.ProductGalleries)
                             {
                                 var imgId = "pro-details" + i.ToString();
-                                var galleryImage = item.ImageUrl;
+                                var galleryImage = "http://www.admin.mazeda-bd.com/" + item.ImageUrl;
 
                                 <div class="tab-pane" id="@imgId">
                                     <div class="easyzoom easyzoom--overlay">
@@ -72,7 +71,7 @@
                             @foreach (var item in Model.ProductGalleries)
                             {
                                 var imgId = "pro-details" + j.ToString();
-                                var galleryImage = item.ImageUrl;
+                                var galleryImage = "http://www.admin.mazeda-bd.com/" + item.ImageUrl;
 
                                 <a class="active" href="#@imgId">
                                     <img src="@galleryImage" alt="@item.ProductId">

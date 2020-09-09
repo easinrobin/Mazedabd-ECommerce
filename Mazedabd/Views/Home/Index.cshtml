@@ -1,7 +1,7 @@
 ﻿@model MZ.Models.PublicViewModel
 @{
     ViewBag.Title = "Home";
-    var imagePath = "http://twadmin.thebyteheart.com/" + Model.CompanySetting.ImgUrl;
+    var imgPath = "http://www.admin.mazeda-bd.com/" + Model.CompanySetting.ImgUrl;
 }
 
 <!-- section featured -->
@@ -16,16 +16,14 @@
         @foreach (var banner in Model.Banners.FindAll(x => x.IsActive == true).ToList())
         {
             string imagepath, sliderImage;
-            //sliderImage = "http://twadmin.thebyteheart.com/" + banner.SliderBgImgUrl;
-            sliderImage = banner.SliderBgImgUrl;
+            sliderImage = "http://www.admin.mazeda-bd.com/" + banner.SliderBgImgUrl;
             if (banner.ImageUrl == null)
             {
                 imagepath = null;
             }
             else
             {
-                //imagepath = "http://twadmin.thebyteheart.com/" + banner.ImageUrl;
-                imagepath = banner.ImageUrl;
+                imagepath = "http://www.admin.mazeda-bd.com/" + banner.ImageUrl;
             }
 
             if (i == 1)
@@ -136,8 +134,7 @@
                 <div class="row">
                     @foreach (var cat in Model.ProductCategories)
                     {
-                        //var imagepath = "http://twadmin.thebyteheart.com/" + cat.ImageUrl;
-                        var imagepath = cat.ImageUrl;
+                        var imagepath = "http://www.admin.mazeda-bd.com/" + cat.ImageUrl;
                         <div class="span3 box-project">
                             <a href="/Home/SubCategory/@cat.Id">
                                 <div class="service-box project-box aligncenter flyIn">

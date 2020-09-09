@@ -15,6 +15,7 @@ namespace MZ.Models
         public string ShortDescription { get; set; }
 
         [Display(Name = "Description")]
+        [Required(ErrorMessage = "Description required")]
         public string Description { get; set; }
 
         [Display(Name = "Image")]

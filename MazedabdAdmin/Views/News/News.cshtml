@@ -25,27 +25,27 @@
                         <th>Description</th>
                         <th>Vedio Link</th>
                         <th>Image</th>
+                        <th>Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.NewsList)
                     {
-
-                    <tr>
-                        <td>@Html.Raw(@item.Title)</td>
-                        <td>@Html.Raw(@item.ShortDescription)</td>
-                        <td>@Html.Raw(@item.Description)</td>
-                        <td>@Html.Raw(@item.VideoPath)</td>
-                        @* <td>@Html.Raw(@item.IsActive)</td> *@
-                        <td>
-                            <img src="@item.ImagePath" width="100" height="100" />
-                        </td>
-                        <td>
-                            @Html.ActionLink(" ", "UpdateNews", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
-                            @Html.ActionLink(" ", "DeleteNews", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
-                        </td>
-                    </tr>
+                        var imgPath = "http://www.admin.mazeda-bd.com/" + item.ImagePath;
+                        <tr>
+                            <td>@Html.Raw(@item.Title)</td>
+                            <td>@Html.Raw(@item.ShortDescription)</td>
+                            <td>@Html.Raw(@item.Description)</td>
+                            <td>@Html.Raw(@item.VideoPath)</td>
+                            <td>
+                                <img src="@imgPath" width="100" height="100" />
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "UpdateNews", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
+                                @Html.ActionLink(" ", "DeleteNews", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>

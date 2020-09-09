@@ -9269,7 +9269,8 @@ button, input, optgroup, select, textarea {
     line-height: 30px;
     border-radius: 50%;
     text-align: center;
-    color: #fff
+    color: #fff;
+    padding: 1px 8px;
 }
 
     .profile__img__edit:hover {
@@ -9413,7 +9414,8 @@ button, input, optgroup, select, textarea {
     line-height: 40px;
     background-color: rgba(255,255,255,.08);
     color: #fff;
-    transition: background-color .3s
+    transition: background-color .3s;
+    padding: 1px 11px;
 }
 
     .new-contact__upload:hover {

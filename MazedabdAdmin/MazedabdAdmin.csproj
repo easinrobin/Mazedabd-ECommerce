@@ -18,10 +18,10 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>44389</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -143,6 +143,17 @@
     <Content Include="Content\fonts\nunito\nunito-regular.svg" />
     <Content Include="Content\fonts\nunito\nunito-regulard41d.html" />
     <Content Include="Content\fonts\nunito\nunito-semibold.svg" />
+    <Content Include="Content\img\ava1.png" />
+    <Content Include="Content\img\bg\1.jpg" />
+    <Content Include="Content\img\bg\10.jpg" />
+    <Content Include="Content\img\bg\2.jpg" />
+    <Content Include="Content\img\bg\3.jpg" />
+    <Content Include="Content\img\bg\4.jpg" />
+    <Content Include="Content\img\bg\5.jpg" />
+    <Content Include="Content\img\bg\6.jpg" />
+    <Content Include="Content\img\bg\7.jpg" />
+    <Content Include="Content\img\bg\8.jpg" />
+    <Content Include="Content\img\bg\9.jpg" />
     <Content Include="Content\VendorCss\animate.min.css" />
     <Content Include="Content\VendorCss\bootstrap-theme.css" />
     <Content Include="Content\VendorCss\bootstrap-theme.min.css" />
@@ -150,6 +161,7 @@
     <Content Include="Content\VendorCss\bootstrap.min.css" />
     <Content Include="Content\VendorCss\dropzone.css" />
     <Content Include="Content\VendorCss\flatpickr.min.css" />
+    <Content Include="Content\VendorCss\font-awesome.min.css" />
     <Content Include="Content\VendorCss\jquery.scrollbar.css" />
     <Content Include="Content\VendorCss\lightgallery.min.css" />
     <Content Include="Content\VendorCss\material-design-iconic-font.min.css" />
@@ -157,6 +169,7 @@
     <Content Include="Content\VendorCss\sweetalert2.min.css" />
     <Content Include="Content\VendorCss\trumbowyg.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\nunito\nunito-bold.svg" />
     <Content Include="fonts\nunito\nunito-regular.svg" />
@@ -196,15 +209,126 @@
     <Content Include="fonts\nunito\nunito-semibold.woff" />
     <Content Include="fonts\nunito\nunito-semibold.woff2" />
     <Content Include="fonts\nunito\nunito-semiboldd41d.eot" />
+    <Content Include="img\about-bg.jpg" />
+    <Content Include="img\AboutUs.jpg" />
+    <Content Include="img\BannerImage\banner4.jpg" />
+    <Content Include="img\BannerImage\fruit-banner.jpg" />
+    <Content Include="img\BannerImage\mrf1.jpeg" />
+    <Content Include="img\BannerImage\mrf2.jpeg" />
+    <Content Include="img\BannerImage\mrf3.jpeg" />
+    <Content Include="img\bg_direction_nav.png" />
+    <Content Include="img\camera\camera-loader.gif" />
+    <Content Include="img\camera\camera_skins.png" />
+    <Content Include="img\camera\patterns\overlay1.png" />
+    <Content Include="img\camera\patterns\overlay10.png" />
+    <Content Include="img\camera\patterns\overlay2.png" />
+    <Content Include="img\camera\patterns\overlay3.png" />
+    <Content Include="img\camera\patterns\overlay4.png" />
+    <Content Include="img\camera\patterns\overlay5.png" />
+    <Content Include="img\camera\patterns\overlay6.png" />
+    <Content Include="img\camera\patterns\overlay7.png" />
+    <Content Include="img\camera\patterns\overlay8.png" />
+    <Content Include="img\camera\patterns\overlay9.png" />
+    <Content Include="img\camera\patterns\_notes\dwsync.xml" />
+    <Content Include="img\category\food.png" />
+    <Content Include="img\category\fruits.jpg" />
+    <Content Include="img\category\fruits.png" />
+    <Content Include="img\category\lub.png" />
+    <Content Include="img\category\service-parts.png" />
+    <Content Include="img\category\tyres.png" />
+    <Content Include="img\footer-bg.jpg" />
+    <Content Include="img\giphy.gif" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\mz-logo.jpg" />
+    <Content Include="img\nav-bg.jpg" />
+    <Content Include="img\not-found.svg" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="img\prettyPhoto\default\loader.gif" />
+    <Content Include="img\prettyPhoto\default\sprite.png" />
+    <Content Include="img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="img\products\bike-engine-oil.jpeg" />
+    <Content Include="img\products\bike-product.png" />
+    <Content Include="img\products\car-product.png" />
+    <Content Include="img\products\fruits.jpg" />
+    <Content Include="img\products\fruits.png" />
+    <Content Include="img\products\lub-product.png" />
+    <Content Include="img\products\M77-1.jpg" />
+    <Content Include="img\products\M77.jpeg" />
+    <Content Include="img\products\malta.jpg" />
+    <Content Include="img\products\Maximo Power V Plus.jpeg" />
+    <Content Include="img\products\Maximo Super.jpeg" />
+    <Content Include="img\products\Maximo Ultra.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1F4.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S1M4 PLUS.jpeg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-1.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-2.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS-3.jpg" />
+    <Content Include="img\products\MRF STEEL MUSCLE S3C8 PLUS.jpeg" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R-1.jpg" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R-2.png" />
+    <Content Include="img\products\MRF SUPER LUG FIFTY PLUS-R.jpeg" />
+    <Content Include="img\products\MRF SUPER MILER 99-1.jpg" />
+    <Content Include="img\products\MRF SUPER MILER 99-2.jpg" />
+    <Content Include="img\products\MRF SUPER MILER 99-3.jpeg" />
+    <Content Include="img\products\MRF SUPER MILER 99.jpeg" />
+    <Content Include="img\products\Optimo Diamond 20W-50.png" />
+    <Content Include="img\products\Optimo-Platinum.jpg" />
+    <Content Include="img\products\Optimo-Titanium.jpg" />
+    <Content Include="img\products\truck-product.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\buttons.html5.min.js" />
     <Content Include="Scripts\buttons.print.min.js" />
     <Content Include="Scripts\CustomJs\app.min.js" />
     <Content Include="Scripts\CustomJs\demo.js" />
+    <Content Include="Scripts\CustomJs\popups.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\flatpickr.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -221,6 +345,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\sweetalert2%409.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="Scripts\trumbowyg.min.js" />
     <Content Include="Scripts\ui\icons.svg" />
@@ -236,7 +361,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Category\Categories.cshtml" />
@@ -245,7 +369,6 @@
     <Content Include="Views\Category\SubCategories.cshtml" />
     <Content Include="Views\Company\CompanySettings.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
-    <Content Include="Views\Home\ClientsBanner.cshtml" />
     <Content Include="Views\ImageAndVideo\ImageGallery.cshtml" />
     <Content Include="Views\ImageAndVideo\InsertImage.cshtml" />
     <Content Include="Views\ImageAndVideo\InsertVideo.cshtml" />
@@ -258,9 +381,10 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Partial\_Gallery.cshtml" />
     <Content Include="Views\Products\Partial\_Product.cshtml" />
-    <Content Include="Views\Products\Partial\_ProductCategory.cshtml" />
     <Content Include="Views\Products\UpdateGalleryItem.cshtml" />
     <Content Include="Views\Products\UpdateProduct.cshtml" />
+    <Content Include="Views\Home\Banner.cshtml" />
+    <Content Include="Views\Home\InsertBanner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

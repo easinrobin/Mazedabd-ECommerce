@@ -96,6 +96,12 @@
     </div>
 </div>
 <script>
+
+    window.onload = function () {
+        var category = $("#category").find("option:selected").val();
+        LoadSubcategory(category);
+    }
+
     function LoadSubcategory(value) {
         var category = $("#category").find("option:selected").val();
         $.ajax({

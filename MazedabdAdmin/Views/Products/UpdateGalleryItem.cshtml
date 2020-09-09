@@ -18,18 +18,18 @@
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("UpdateProjectG", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("UpdateProjectG", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.HiddenFor(model => model.ProductGallery.Id)
         @Html.HiddenFor(model => model.ProductGallery.ImageUrl)
         @Html.HiddenFor(model => model.ProductGallery.ProductId)
-        //var imagepath = "http://ss.byteheart.com/" + Model.Banner.ImageUrl;
+        var imgPath = "http://www.admin.mazeda-bd.com/" + Model.ProductGallery.ImageUrl;
         <div class="new-contact__header">
 
             @*@Html.TextBoxFor(model => model.Files, new { type = "file", id = "files", @class = "fa fa-camera new-contact__upload" })*@
             @*<input type="file" name="file" id="files" class="zmdi zmdi-camera new-contact__upload" />*@
 
-            <img src="@Model.ProductGallery.ImageUrl" class="new-contact__img" alt="">
+            <img src="@imgPath" class="new-contact__img" alt="">
         </div>
 
         <div class="card-body">

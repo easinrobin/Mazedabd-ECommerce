@@ -16,7 +16,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier</title>
+    <title>@ViewBag.Title - @companySetting.CompanyName | Vehicle lubricants & Fruits Supplier</title>
     <meta name="description" content="@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier" />
     <meta name="title" content="@ViewBag.Title - @companySetting.CompanyName | vehicle lubricants & Fruits Supplier">
     <link rel="icon" href="@Url.Content("~/twaicon.ico")" />
@@ -48,7 +48,7 @@
                     <div class="row inline-top">
                         <div class="span6">
                             <div class="src-area">
-                                @*<p class="topcontact">
+                                <p class="topcontact">
                                     @if (!string.IsNullOrEmpty(companySetting.MainContactNo))
                                     {
                                         <i class="icon-phone"></i><a href="tel:@Html.Raw(companySetting.MainContactNo)"> @Html.Raw(companySetting.MainContactNo)</a>
@@ -58,7 +58,7 @@
                                         <i class="icon-phone"></i><a href="tel:@Html.Raw(companySetting.ContactNo)"> @Html.Raw(companySetting.ContactNo)</a>
                                     }
 
-                                </p>*@
+                                </p>
                                 <div class="search-container">
                                     @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
                                     {
