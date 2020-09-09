@@ -2,6 +2,16 @@
 @{
     ViewBag.Title = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section metatags
+{
+
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
 }
 <section id="inner-headline">
     <div class="container">
@@ -29,15 +39,19 @@
                 @Html.Raw(Model.AboutUs.Description)
             </div>
             <div class="span4">
-                
+
             </div>
         </div>
     </div>
 </section>
 <!-- divider -->
 @*<div class="row">
+        <div class="span12">
+            <div class="solidline"></div>
+        </div>
+    </div>*@<div class="row">
     <div class="span12">
         <div class="solidline"></div>
     </div>
-</div>*@
+</div>
 <!-- end divider -->

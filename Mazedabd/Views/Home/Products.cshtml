@@ -3,6 +3,15 @@
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section metatags
+{
+
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
+}
 @Html.HiddenFor(x => Model.ProductSubCategory.Id)
 <section id="inner-headline">
     <div class="container">

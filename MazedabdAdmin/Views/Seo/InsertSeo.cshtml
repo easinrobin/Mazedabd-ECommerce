@@ -1,0 +1,97 @@
+﻿@using Vereyon.Web
+@model MZ.Models.AdminViewModel
+@{
+    ViewBag.Title = "InsertSeo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
+        <li class="breadcrumb-item"><a href="~/Seo/Index"> SEO</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Update SEO</li>
+
+    </ol>
+</nav>
+
+<header class="content__title">
+    <h1>SEO</h1>
+</header>
+
+<div class="card new-contact">
+    @using (Html.BeginForm("InsertSeo", "Seo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(model => model.Seo.id)
+
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Page Name</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                    @Html.TextBoxFor(model => model.Seo.PageName, new { @class = "form-control", @readonly = "" })
+                    @Html.ValidationMessageFor(model => model.Seo.PageName, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Meta Tag</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                    @Html.TextBoxFor(model => model.Seo.Metatag, new { @class = "form-control", placeholder = "Give a Meta Tag" })
+                    @Html.ValidationMessageFor(model => model.Seo.Metatag, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Meta Description</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                    @Html.TextBoxFor(model => model.Seo.MetaDesciption, new { @class = "form-control", placeholder = "Give Meta Descriptions" })
+                    @Html.ValidationMessageFor(model => model.Seo.MetaDesciption, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Canonical</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                    @Html.TextBoxFor(model => model.Seo.Canonical, new { @class = "form-control", placeholder = "Give a Canonical Title" })
+                    @Html.ValidationMessageFor(model => model.Seo.Canonical, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Href Tag</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                    @Html.TextBoxFor(model => model.Seo.HrefTag, new { @class = "form-control", placeholder = "Give a Href Tag" })
+                    @Html.ValidationMessageFor(model => model.Seo.HrefTag, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @if (Model == null)
+                {
+                    <input type="submit" value="Create" class="btn btn-light" />
+                }
+                else
+                {
+                    <input type="submit" value="Update" class="btn btn-light" />
+                }
+
+            </div>
+        </div>
+    </div>
+    }
+</div>

@@ -49,6 +49,7 @@
     <Compile Include="IProductCategoryProvider.cs" />
     <Compile Include="IProductGalleryProvider.cs" />
     <Compile Include="IProductProvider.cs" />
+    <Compile Include="ISeoProvider.cs" />
     <Compile Include="IServiceProvider.cs" />
     <Compile Include="IUserProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

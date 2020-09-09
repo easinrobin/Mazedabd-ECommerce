@@ -35,6 +35,13 @@ namespace MZ.Models
         public List<VideoGallery> VideoGalleries { get; set; }
         public ProductSubCategory ProductSubCategory { get; set; }
         public List<ProductSubCategory> ProductSubCategories { get; set; }
+        public SETag SeTag { get; set; }
+
+        public SETag Seo { get; set; }
+        public List<SETag> Seos { get; set; }
+        
+
+
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Image Required")]
         public IEnumerable<HttpPostedFileBase> Files { get; set; }

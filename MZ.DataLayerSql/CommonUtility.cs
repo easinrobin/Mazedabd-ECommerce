@@ -113,5 +113,13 @@ namespace MZ.DataLayerSql
         public static string InsertNews = "sp_InsertNewsEvent";
         public static string UpdateNews = "sp_UpdateNewsEvent";
         public static string DeleteNews = "sp_DeleteNewsEvent";
+
+        //SEO
+        public static string GetAllSeo = "sp_GetSEO";
+        public static string GetSeoByPageName = "sp_GetSEOByPageName";
+        public static string GetSeoById = "sp_GetSEOById";
+        public static string InsertSeo = "sp_InsertSEO";
+        public static string UpdateSeo = "sp_UpdateSEO";
+        public static string DeleteSeo = "sp_DeleteSEO";
     }
 }

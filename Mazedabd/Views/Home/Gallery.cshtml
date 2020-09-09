@@ -2,6 +2,15 @@
 @{
     ViewBag.Title = "Gallery";
 }
+@section metatags
+{
+
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
+}
 
 
 <section id="gallery-content ">

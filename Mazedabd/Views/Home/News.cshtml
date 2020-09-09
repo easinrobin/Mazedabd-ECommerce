@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "News & Events";
 }
+@section metatags
+{
+
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
+}
 <section id="inner-headline">
     <div class="container">
         <div class="row">
@@ -97,7 +106,7 @@ else
                         <h3>No news for now. Come back again later.</h3>
                     </div>
                     <div class="span6">
-                        <img src="/img/not-found.svg" style="height: 300px"/>
+                        <img src="/img/not-found.svg" style="height: 300px" />
                     </div>
                 </div>
             </div>

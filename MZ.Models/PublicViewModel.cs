@@ -25,5 +25,7 @@ namespace MZ.Models
         public Search Search { get; set; }
         public News News { get; set; }
         public List<News> NewsList { get; set; }
+        public SETag SeTag { get; set; }
+        public SETag GetSeoByPageName { get; set; }
     }
 }

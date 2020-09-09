@@ -4,7 +4,15 @@
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section metatags
+{
 
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
+}
 <section id="inner-headline">
     <div class="container">
         <div class="row">
@@ -99,7 +107,20 @@
                         <p>@Html.Raw(Model.Product.Description)</p>
                     </div>
                     @*<div class="product-share">
-                        <h5 class="pd-sub-title">Share</h5>
+                            <h5 class="pd-sub-title">Share</h5>
+                            <ul>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>*@<div class="product-share">
+                        <h5 class="pd-sub-title"></h5>
                         <ul>
                             <li>
                                 <a href="#" data-placement="bottom" title="Facebook"><i class="icon-facebook"></i></a>
@@ -108,10 +129,10 @@
                                 <a href="#" data-placement="bottom" title="Twitter"><i class="icon-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" data-placement="bottom" title="Instagram"> <i class="icon-instagram"></i></a>
+                                <a href="#" data-placement="bottom" title="Instagram"><i class="icon-instagram"></i></a>
                             </li>
                         </ul>
-                    </div>*@
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,7 +170,7 @@
                         </div>
 
                         <div class="span4 form-group">
-                            @Html.Recaptcha(publicKey: "6LcMg8MZAAAAACN7rUGTRZ3bL_J7_ABr-GCvvzl7", theme: CaptchaTheme.Dark,type:CaptchaType.Image)
+                            @Html.Recaptcha(publicKey: "6LcMg8MZAAAAACN7rUGTRZ3bL_J7_ABr-GCvvzl7", theme: CaptchaTheme.Dark, type: CaptchaType.Image)
                             @Html.ValidationMessage("ReCaptcha", new { @class = "red-text" })
                         </div>
 

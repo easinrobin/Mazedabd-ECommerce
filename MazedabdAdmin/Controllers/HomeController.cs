@@ -55,6 +55,81 @@ namespace MazedabdAdmin.Controllers
         }
 
 
+        public ActionResult Banner()
+        {
+            List<Banner> allBanners = HomeManager.GetAllBanners();
+            return View(allBanners);
+        }
+
+        public ActionResult InsertBanner()
+        {
+            AdminViewModel av = new AdminViewModel();
+            av.Banner = new Banner();
+            return View(av);
+        }
+
+        public ActionResult UpdateBanner(AdminViewModel av, long Id)
+        {
+            if (Id > 0)
+            {
+                av.Banner = HomeManager.GetBannerDetails(Id);
+                if (av.Banner != null)
+                {
+                    return View("~/Views/Home/InsertBanner.cshtml", av);
+                }
+            }
+            return RedirectToAction("Banner");
+        }
+
+        public ActionResult DeleteBanner(long Id)
+        {
+            HomeManager.DeleteBanner(Id);
+            return RedirectToAction("Banner");
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult InsertBanner(AdminViewModel av, HttpPostedFileBase image)
+        {
+            if (av.Banner != null && av.Banner.Id > 0)
+            {
+                if (av.File != null)
+                {
+                    av.Banner.ImageUrl = _UploadSingleImage(av, image);
+                }
+                if (av.SliderBgImgUrl.File != null)
+                {
+                    av.Banner.SliderBgImgUrl = _UploadSliderImg(av, image);
+                }
+
+                av.Banner.IsActive = true;
+                av.Banner.CreatedBy = "Admin";
+                av.Banner.CreatedDate = DateTime.Now;
+                HomeManager.UpdateBanner(av.Banner);
+            }
+            else
+            {
+                if (av.Banner != null)
+                {
+                    if (av.File != null)
+                    {
+                        av.Banner.ImageUrl = _UploadSingleImage(av, image);
+                        av.Banner.SliderBgImgUrl = _UploadSliderImg(av, image);
+                    }
+
+
+
+                    av.Banner.IsActive = true;
+                    av.Banner.CreatedBy = "Admin";
+                    av.Banner.CreatedDate = DateTime.Now;
+                    HomeManager.InsertBanner(av.Banner);
+                }
+            }
+
+            return RedirectToAction("Banner");
+        }
+
+
         private string _UploadImage(AdminViewModel adminVwModel, HttpPostedFileBase images)
         {
             string pathUrl = "";

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -17,7 +18,13 @@ namespace Mazedabd.Controllers
     {
         public ActionResult Index()
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
+            if (path == "")
+            {
+                path = "Index";
+            }
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -35,15 +42,27 @@ namespace Mazedabd.Controllers
 
         public ActionResult About()
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
+            
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             publicViewModel.OurClients = ClientManager.GetAllClients();
             publicViewModel.AboutUs = HomeManager.GetAboutUs(1);
             return View(publicViewModel);
         }
 
+        public SETag _loadSeo(string PageName)
+        {
+            SETag dataList = SEOManager.GetSeoByPageName(PageName);
+            return dataList;
+        }
+
         public ActionResult ProductCategory()
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
+
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -63,7 +82,9 @@ namespace Mazedabd.Controllers
 
         public ActionResult SubCategory(long id = 0)
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             PublicViewModel pv = new PublicViewModel();
+            pv.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 pv.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -84,8 +105,10 @@ namespace Mazedabd.Controllers
 
         public ActionResult Products(long id = 0)
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             Session["EmailStatus"] = null;
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -116,7 +139,9 @@ namespace Mazedabd.Controllers
 
         public ActionResult ProductDetails(long? id)
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -154,7 +179,9 @@ namespace Mazedabd.Controllers
 
         public ActionResult News(long? newsId)
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -249,7 +276,9 @@ namespace Mazedabd.Controllers
 
         public ActionResult Contact()
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             PublicViewModel publicViewModel = new PublicViewModel();
+            publicViewModel.GetSeoByPageName = _loadSeo(path);
             if (Session["CompanySetting"] != null)
             {
                 publicViewModel.CompanySetting = (CompanySetting)Session["CompanySetting"];
@@ -325,7 +354,9 @@ namespace Mazedabd.Controllers
 
         public ActionResult Gallery()
         {
+            var path = Path.GetFileName(Request.CurrentExecutionFilePath.ToLower());
             PublicViewModel pv = new PublicViewModel();
+            pv.GetSeoByPageName = _loadSeo(path);
             pv.ImageGalleries = NewsEventsManager.GetAllImageGallery();
             pv.VideoGalleries = NewsEventsManager.GetAllVideoGallery();
             
@@ -365,5 +396,7 @@ namespace Mazedabd.Controllers
 
             return msg;   // If msg == null then the e-mail was sent without errors
         }
+
+
     }
 }

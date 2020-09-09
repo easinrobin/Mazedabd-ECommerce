@@ -291,18 +291,7 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\..\mzDll\mzDll\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
-    <Reference Include="MZ.BusinessLayer">
-      <HintPath>..\..\mzDll\mzDll\MZ.BusinessLayer.dll</HintPath>
-    </Reference>
-    <Reference Include="MZ.DataLayer">
-      <HintPath>..\..\mzDll\mzDll\MZ.DataLayer.dll</HintPath>
-    </Reference>
-    <Reference Include="MZ.DataLayerSql">
-      <HintPath>..\..\mzDll\mzDll\MZ.DataLayerSql.dll</HintPath>
-    </Reference>
-    <Reference Include="MZ.Models">
-      <HintPath>..\..\mzDll\mzDll\MZ.Models.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MZ.Utility">
       <HintPath>..\..\mzDll\mzDll\MZ.Utility.dll</HintPath>
     </Reference>
@@ -431,6 +420,24 @@
     <Reference Include="WebGrease">
       <HintPath>..\..\mzDll\mzDll\WebGrease.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MZ.BusinessLayer\MZ.BusinessLayer.csproj">
+      <Project>{6703aa88-dceb-440a-bfe5-02b0a02d2d19}</Project>
+      <Name>MZ.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MZ.DataLayerSql\MZ.DataLayerSql.csproj">
+      <Project>{ec9c1427-5917-46de-ad07-7027b4d4dd6e}</Project>
+      <Name>MZ.DataLayerSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MZ.DataLayer\MZ.DataLayer.csproj">
+      <Project>{b006963d-bf8d-4a49-8e42-a2812614b5e3}</Project>
+      <Name>MZ.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MZ.Models\MZ.Models.csproj">
+      <Project>{368d8c06-49ce-438f-bf46-25ea0c32038e}</Project>
+      <Name>MZ.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,8 +2,17 @@
 @{
     ViewBag.Title = "Home";
     var imagePath = "http://twadmin.thebyteheart.com/" + Model.CompanySetting.ImgUrl;
-}
 
+}
+@section metatags
+{
+
+    <meta name="keywords" content="@Model.GetSeoByPageName.Metatag" />
+    <meta name="description" content="@Model.GetSeoByPageName.MetaDesciption">
+    <link rel=“canonical” href=“@Model.GetSeoByPageName.Canonical” />
+    <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
+
+}
 <!-- section featured -->
 <section id="featured">
 
@@ -143,6 +152,14 @@
 </section>
 
 @*<section id="speech">
+        <div class="container">
+            <div class="row">
+                <div class="span12 text-center">
+                    <img src="@imagePath" width="550" />
+                </div>
+            </div>
+        </div>
+    </section>*@<section id="speech">
     <div class="container">
         <div class="row">
             <div class="span12 text-center">
@@ -150,7 +167,7 @@
             </div>
         </div>
     </div>
-</section>*@
+</section>
 
 
 <section id="works">
