@@ -4,6 +4,8 @@
     var imagePath = "http://twadmin.thebyteheart.com/" + Model.CompanySetting.ImgUrl;
 
 }
+@if (Model.GetSeoByPageName != null)
+{
 @section metatags
 {
 
@@ -13,6 +15,8 @@
     <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
 
 }
+}
+
 <!-- section featured -->
 <section id="featured">
 

@@ -3,6 +3,8 @@
     ViewBag.Title = "Product Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (Model.GetSeoByPageName != null)
+{
 @section metatags
 {
 
@@ -12,6 +14,8 @@
     <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
 
 }
+}
+
 <style>
     .service-box {
         margin-bottom: 30px;

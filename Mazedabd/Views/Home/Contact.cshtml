@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Contact";
 }
+@if (Model.GetSeoByPageName != null)
+{
 @section metatags
 {
 
@@ -12,6 +14,8 @@
     <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
 
 }
+}
+
 <section id="inner-headline">
     <div class="container">
         <div class="row">

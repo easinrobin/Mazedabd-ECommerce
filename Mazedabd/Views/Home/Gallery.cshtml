@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Gallery";
 }
+@if (Model.GetSeoByPageName != null)
+{
 @section metatags
 {
 
@@ -11,6 +13,8 @@
     <link rel="alternate" href="@Model.GetSeoByPageName.HrefTag" hreflang="en-us" />
 
 }
+}
+
 
 
 <section id="gallery-content ">
