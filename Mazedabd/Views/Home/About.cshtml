@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "About Us";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var imgPath = "http://www.admin.mazeda-bd.com/" + Model.AboutUs.ImageUrl;
 }
 <section id="inner-headline">
     <div class="container">
@@ -34,3 +35,7 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById("description-bg").style.backgroundImage = "url('@imgPath')";
+</script>

@@ -11,6 +11,12 @@ function submitFormReq() {
     else if (url.indexOf("/News/InsertNews") > -1) {
         $('#newsForm').submit();
     }
+    else if (url.indexOf("/Home/InsertBanner") > -1) {
+        $('#bannerForm').submit();
+    }
+    else if (url.indexOf("/Home/UpdateBanner") > -1) {
+        $('#bannerForm').submit();
+    }
 }
 
 $(document).on('click', '#formCancelBtn', function (e) {
@@ -29,6 +35,32 @@ $(document).on('click', '#formCancelBtn', function (e) {
     }).then((result) => {
         if (result.value) {
             window.location.href = homeLocation;
+        }
+    });
+});
+
+$(document).on('click', '#deleteItem', function (e) {
+    e.preventDefault();
+    Swal.fire({
+        title: "Delete Item",
+        text: "You are about to permanently delete this item. Do you want to proceed?",
+        icon: 'warning',
+        allowOutsideClick: false,
+        showCancelButton: true,
+        background: '#0A0C18',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Yes"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Deleted!',
+                text: 'Your file has been deleted.',
+                icon: 'success',
+                background: '#0A0C18'
+            });
+            window.location.href = $(this).attr('href');
         }
     });
 });

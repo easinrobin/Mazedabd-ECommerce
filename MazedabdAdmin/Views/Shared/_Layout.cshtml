@@ -13,9 +13,10 @@
     @Styles.Render("~/Content/lightgallery")
     @Styles.Render("~/Content/select2")
     @*@Styles.Render("~/Content/sweetalert2")*@
-    @Styles.Render("~/Content/trumbowyg")
+    @*@Styles.Render("~/Content/trumbowyg")*@
     <link href="~/Content/VendorCss/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/appMin")
+    <link href="~/Content/VendorCss/summernote-lite.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/demo")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -94,11 +95,11 @@
     <script src="~/Scripts/jquery-2.1.4.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/summernote-lite.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/jquery.scrollbar.min.js"></script>
     <script src="~/Scripts/jquery-scrollLock.min.js"></script>
-
     <script src="~/Scripts/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/dataTables.buttons.min.js"></script>
     <script src="~/Scripts/buttons.print.min.js"></script>
@@ -132,7 +133,7 @@
             })
         });
 
-        $('#wysiwyg-editor').trumbowyg();
+        //$('#wysiwyg-editor').trumbowyg();
 
         $(function () {
             // this will get the full URL at the address bar

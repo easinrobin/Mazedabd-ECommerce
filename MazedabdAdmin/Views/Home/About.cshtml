@@ -47,7 +47,7 @@
                         @Html.LabelFor(model => model.AboutUs.Description, new { @class = "card-body__title" })
                         @*@Html.TextAreaFor(model => model.Property.Description, new { @class = "form-control", rows = "3", placeHolder = "Description" })*@
                         <section id="editor" class="rich-text-box">
-                            @Html.TextAreaFor(model => model.AboutUs.Description, new { @id = "wysiwyg-editor", placeHolder = "Description" })
+                            @Html.TextAreaFor(model => model.AboutUs.Description, new { @id = "summernote", placeHolder = "Description" })
                             @Html.ValidationMessageFor(model => model.AboutUs.Description, "", new { @class = "validation-text" })
                         </section>
 
