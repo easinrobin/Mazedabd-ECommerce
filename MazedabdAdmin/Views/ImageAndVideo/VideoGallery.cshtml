@@ -1,11 +1,11 @@
 ﻿@model MZ.Models.AdminViewModel
 @{
-    ViewBag.Title = "VideoGallery";
+    ViewBag.Title = "Video Gallery";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <header class="content__title">
-    <h1>Image Gallery</h1>
+    <h1>Video Gallery</h1>
     <div class="actions">
         <a href="~/ImageAndVideo/InsertVideo" class="actions__item zmdi zmdi-plus zmdi-hc-fw" title="Create"></a>
         <a href="~/ImageAndVideo/VideoGallery" class="actions__item zmdi zmdi-refresh zmdi-hc-fw" title="Refresh"></a>
@@ -19,26 +19,27 @@
         <div class="table-responsive">
             <table id="data-table" class="table">
                 <thead style="color: #ffaa00">
-                <tr>
-                    <th>Title</th>
-                    <th>Video Path</th>
+                    <tr>
+                        <th>Title</th>
+                        <th>Video Path</th>
+                        <th>Action</th>
 
-                </tr>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var item in Model.VideoGalleries)
-                {
+                    @foreach (var item in Model.VideoGalleries)
+                    {
 
-                    <tr>
-                        <td>@Html.Raw(@item.VideoTitle)</td>
-                        <td>@Html.Raw(@item.VideoPath)</td>
+                        <tr>
+                            <td>@Html.Raw(@item.VideoTitle)</td>
+                            <td>@Html.Raw(@item.VideoPath)</td>
 
-                        <td>
-                            @Html.ActionLink(" ", "UpdateVideo", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
-                            @Html.ActionLink(" ", "DeleteVideo", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
-                        </td>
-                    </tr>
-                }
+                            <td>
+                                @Html.ActionLink(" ", "UpdateVideo", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
+                                @Html.ActionLink(" ", "DeleteVideo", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", id = "deleteItem", })
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

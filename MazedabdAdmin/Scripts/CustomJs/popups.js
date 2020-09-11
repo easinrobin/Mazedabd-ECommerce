@@ -11,11 +11,26 @@ function submitFormReq() {
     else if (url.indexOf("/News/InsertNews") > -1) {
         $('#newsForm').submit();
     }
+    else if (url.indexOf("/News/UpdateNews") > -1) {
+        $('#newsForm').submit();
+    }
     else if (url.indexOf("/Home/InsertBanner") > -1) {
         $('#bannerForm').submit();
     }
     else if (url.indexOf("/Home/UpdateBanner") > -1) {
         $('#bannerForm').submit();
+    }
+    else if (url.indexOf("/ImageAndVideo/UpdateImage") > -1) {
+        $('#imgForm').submit();
+    }
+    else if (url.indexOf("/ImageAndVideo/InsertImage") > -1) {
+        $('#imgForm').submit();
+    }
+    else if (url.indexOf("/ImageAndVideo/InsertVideo") > -1) {
+        $('#vidForm').submit();
+    }
+    else if (url.indexOf("/ImageAndVideo/UpdateVideo") > -1) {
+        $('#vidForm').submit();
     }
 }
 

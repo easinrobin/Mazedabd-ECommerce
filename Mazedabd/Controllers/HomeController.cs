@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -232,23 +233,21 @@ namespace Mazedabd.Controllers
 
             try
             {
-                string body = string.Empty;
-                body += "Hi Team,";
-                body += "<br/> This is from MazedaMart product enquiry:";
-                body += "<br/>Name: " + pv.Feedback.Name;
-                body += "<br/>Mobile No.: " + pv.Feedback.Mobile;
-                body += "<br/>Message: " + pv.Feedback.Message;
-                body += "<br/>Product Name: " + pv.Product.ProductName;
-                body += "<br/>Product Price: " + pv.Product.Price;
-                body += "<br/>Product Link: " + Request.Url?.AbsoluteUri;
-                body += "<br/> Date: " + DateTime.Now.ToString("dd MMM yyyy");
-
+                string path = System.Web.HttpContext.Current.Server.MapPath("~/Mail/mz-email.html");
+                string html = System.IO.File.ReadAllText(path);
+                html = html.Replace("{name}", pv.Feedback.Name);
+                html = html.Replace("{mobile}", pv.Feedback.Mobile);
+                html = html.Replace("{message}", pv.Feedback.Message);
+                html = html.Replace("{p_name}", pv.Product.ProductName);
+                html = html.Replace("{p_price}", pv.Product.Price.ToString());
+                html = html.Replace("{p_link}", Request.Url?.AbsoluteUri);
+                html = html.Replace("{date}", DateTime.Now.ToString("dd MMM yyyy"));
+                
                 bool hasWords = HasBadWords(pv.Feedback.Message);
 
                 if (hasWords == false)
                 {
-                    SendEmailFromGoDaddy("MazedaMart contact us inquiry", body, "hello@thebyteheart.com", "robin.byteheart@gmail.com", "robineasin@gmail.com", true,
-                        "hello@thebyteheart.com", "He11o@S1tec0re");
+                    SendEmailFromGoDaddy("MazedaMart contact us inquiry", html);
                 }
 
                 StringBuilder sb = new StringBuilder();
@@ -312,21 +311,18 @@ namespace Mazedabd.Controllers
 
             try
             {
-                string body = string.Empty;
-                body += "Hi Team,";
-                body += "<br/> This is from MazedaMart Contact us enquiry:";
-                body += "<br/>Name: " + pv.Feedback.Name;
-                body += "<br/>Email: " + pv.Feedback.Email;
-                body += "<br/>Subject: " + pv.Feedback.Subject;
-                body += "<br/>Message: " + pv.Feedback.Message;
-                body += "<br/> Date: " + DateTime.Now.ToString("dd MMM yyyy");
+                string path = System.Web.HttpContext.Current.Server.MapPath("~/Mail/mz-email.html");
+                string html = System.IO.File.ReadAllText(path);
+                html = html.Replace("{name}", pv.Feedback.Name);
+                html = html.Replace("{mobile}", pv.Feedback.Mobile);
+                html = html.Replace("{message}", pv.Feedback.Message);
+                html = html.Replace("{date}", DateTime.Now.ToString("dd MMM yyyy"));
 
                 bool hasWords = HasBadWords(pv.Feedback.Message);
 
                 if (hasWords == false)
                 {
-                    SendEmailFromGoDaddy("MazedaMart contact us inquiry", body, "hello@thebyteheart.com", "robin.byteheart@gmail.com", "robineasin@gmail.com", true,
-                        "hello@thebyteheart.com", "He11o@S1tec0re");
+                    SendEmailFromGoDaddy("MazedaMart contact us inquiry", html);
                 }
 
                 StringBuilder sb = new StringBuilder();
@@ -363,32 +359,41 @@ namespace Mazedabd.Controllers
             return wordFilter.IsMatch(inputWords.ToLower());
         }
 
-        private string SendEmailFromGoDaddy(string subject, string body, string sender, string recipient, string bcc, bool isHTML, string smtpUsername, string smtpPassword)
+        private string SendEmailFromGoDaddy(string subject, string body)
         {
             string msg = null;
 
+            var fromAddress = new MailAddress("info.mazedabd@gmail.com", "Info@Mazeda");
+            var toAddress = new MailAddress("robin.byteheart@gmail.com", "Robin");
+            const string fromPassword = "mazeda@2020";
+
             try
             {
-                MailMessage mailMsg = new MailMessage(sender, recipient);
-                mailMsg.Bcc.Add(bcc);
-                mailMsg.Subject = subject;
-                mailMsg.Body = body;
-                mailMsg.IsBodyHtml = isHTML;
-
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtpout.asia.secureserver.net";
-                smtp.Credentials = new System.Net.NetworkCredential(smtpUsername, smtpPassword);
-                smtp.Port = 80;
-                smtp.EnableSsl = false;
-                smtp.Send(mailMsg);
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+                    Timeout = 20000
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                {
+                    smtp.Send(message);
+                }
             }
-
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 msg = ex.Message;
             }
 
-            return msg;   // If msg == null then the e-mail was sent without errors
+            return msg;
         }
     }
 }

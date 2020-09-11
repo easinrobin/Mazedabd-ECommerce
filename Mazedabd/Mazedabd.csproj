@@ -281,6 +281,12 @@
     <Content Include="fonts\fontawesome\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="Mail\car.jpg" />
+    <Content Include="Mail\mz-email.html" />
+    <Content Include="Mail\Facebook-oa.png" />
+    <Content Include="Mail\Linkedin-oa.png" />
+    <Content Include="Mail\logo1.png" />
+    <Content Include="Mail\Twitter-oa.png" />
     <Content Include="Scripts\CustomJs\custom.js" />
     <Content Include="Scripts\ThirdPartyJs\animate.js" />
     <Content Include="Scripts\ThirdPartyJs\baguetteBox.min.js" />

@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach (var item in Model.ImageGalleries)
                     {
-                        var imgPath = "http://www.admin.mazeda-bd.com/" + item.ImagePath;
+                        var imgPath = item.ImagePath;
                         <tr>
                             <td>@Html.Raw(@item.ImageTitle)</td>
                             <td>
@@ -36,7 +36,7 @@
                             </td>
                             <td>
                                 @Html.ActionLink(" ", "UpdateImage", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
-                                @Html.ActionLink(" ", "DeleteImage", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
+                                @Html.ActionLink(" ", "DeleteImage", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", id = "deleteItem", })
                             </td>
                         </tr>
                     }
