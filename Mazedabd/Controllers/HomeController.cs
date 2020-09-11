@@ -209,10 +209,7 @@ namespace Mazedabd.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        [CaptchaValidator(
-            PrivateKey = "6LcMg8MZAAAAAHo6fxgQF_hOnhg28SrB8CH4z8zS",
-            ErrorMessage = "Invalid input captcha.",
-            RequiredMessage = "The captcha field is required.")]
+        [CaptchaValidator]
         public ActionResult ProductDetails(PublicViewModel pv)
         {
             if (!ModelState.IsValid)
@@ -288,10 +285,7 @@ namespace Mazedabd.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
-        [CaptchaValidator(
-            PrivateKey = "6LcMg8MZAAAAAHo6fxgQF_hOnhg28SrB8CH4z8zS",
-            ErrorMessage = "Invalid input captcha.",
-            RequiredMessage = "The captcha field is required.")]
+        [CaptchaValidator]
         public ActionResult Contact(PublicViewModel pv)
         {
 
@@ -365,7 +359,7 @@ namespace Mazedabd.Controllers
 
             var fromAddress = new MailAddress("info.mazedabd@gmail.com", "Info@Mazeda");
             var toAddress = new MailAddress("robin.byteheart@gmail.com", "Robin");
-            const string fromPassword = "mazeda@2020";
+            string fromPassword = ConfigurationManager.AppSettings["mailPass"];
 
             try
             {
