@@ -86,13 +86,10 @@ namespace MazedabdAdmin.Controllers
             {
                 if (av.Banner != null)
                 {
-                    if (av.File != null)
+                    if (av.SliderBgImgUrl.File != null)
                     {
-                        av.Banner.ImageUrl = _UploadSingleImage(av, image);
                         av.Banner.SliderBgImgUrl = _UploadSliderImg(av, image);
                     }
-
-
 
                     av.Banner.IsActive = true;
                     av.Banner.CreatedBy = "Admin";
@@ -103,8 +100,7 @@ namespace MazedabdAdmin.Controllers
 
             return RedirectToAction("Banner");
         }
-
-        [HttpPost]
+        
         public ActionResult DeleteBanner(long id)
         {
             HomeManager.DeleteBanner(id);

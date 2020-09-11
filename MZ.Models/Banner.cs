@@ -19,7 +19,6 @@ namespace MZ.Models
         public string Title { get; set; }
 
         [Display(Name = "Short Description")]
-        [Required(ErrorMessage = "Short Description required")]
         public string ShortDescription { get; set; }
 
         [Display(Name = "Image")]
@@ -42,6 +41,7 @@ namespace MZ.Models
     [NotMapped]
     public class SliderBgImgUrl
     {
+        [Required(ErrorMessage = "Image required")]
         public HttpPostedFileBase File { get; set; }
     }
 }

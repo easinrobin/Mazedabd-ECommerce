@@ -37,7 +37,7 @@
                             </td>
                             <td>
                                 @Html.ActionLink(" ", "UpdateBanner", new { Id = item.Id }, new { @class = "zmdi zmdi-edit", title = "Edit Item", data_toggle = "tooltip", data_placement = "top" })&nbsp;&nbsp;
-                                @Html.ActionLink(" ", "DeleteBanner", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", title = "Delete Item", data_toggle = "tooltip", data_placement = "top", onclick = "return confirm('Are you sure you want to delete this item?')" })
+                                @Html.ActionLink(" ", "DeleteBanner", new { Id = item.Id }, new { @class = "zmdi zmdi-delete", id = "deleteItem", title = "Delete Item", data_toggle = "tooltip", data_placement = "top" })
                             </td>
                         </tr>
                     }

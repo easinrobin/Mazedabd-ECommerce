@@ -104,3 +104,43 @@
 .rating-demo .rating {
     margin: 10px 20px 10px 0;
 }
+
+.note-frame {
+    color: #ffffff !important;
+    background: #4a4a4a;
+}
+
+.note-dropdown-menu {
+    background: #4a4a4a;
+    color: #ffffff;
+}
+
+.note-dropdown-item > pre {
+    background-color: transparent;
+}
+
+.note-btn:after {
+    content: none;
+}
+
+.note-modal-content {
+    background: #2b2b2b;
+    color: #ffffff;
+}
+
+.note-modal-header {
+    border: none;
+}
+
+    .note-modal-header > h4, .note-modal-header > button.close {
+        color: #ffffff;
+    }
+
+.note-input {
+    background: transparent;
+}
+
+.note-modal-footer {
+    height: 60px;
+    padding: 10px 15px;
+}

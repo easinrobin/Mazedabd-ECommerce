@@ -9,21 +9,21 @@
 <nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="~/Home/Index">Home</a></li>
-        <li class="breadcrumb-item"><a href="~/ImageAndVideo/VideoGallery">Image Gallery</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Insert Image</li>
+        <li class="breadcrumb-item"><a href="~/ImageAndVideo/VideoGallery">Video Gallery</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Video</li>
 
     </ol>
 </nav>
 
 <header class="content__title">
-    <h1>News</h1>
+    <h1>Video Gallery</h1>
     <div class="actions">
         <a href="~/ImageAndVideo/InsertVideo" class="actions__item zmdi zmdi-refresh zmdi-hc-fw" title="Refresh"></a>
     </div>
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("InsertVideo", "ImageAndVideo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("InsertVideo", "ImageAndVideo", FormMethod.Post, new { enctype = "multipart/form-data", id="vidForm" }))
     {
         @Html.HiddenFor(model => model.VideoGallery.Id)
 
@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Video Path</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Use <span class=&quot;colored&quot;> </span> for text coloring" data-toggle="tooltip" data-placement="top"></i></span>
+                        <label>Video Path</label>&nbsp;&nbsp;<span style="font-size: 18px; color: #1AD69C"><i class="zmdi zmdi-help-outline" title="Copy only the video ID from youtube and paste here. E.g. from &quot;https://www.youtube.com/watch?v=o2aQ3k-oArc &quot; copy after &quot;watch?v=&quot; and paste in the text box below" data-toggle="tooltip" data-placement="top"></i></span>
                         @Html.TextBoxFor(model => model.VideoGallery.VideoPath, new { @class = "form-control", placeholder = "Give a Title" })
                         @Html.ValidationMessageFor(model => model.VideoGallery.VideoPath, "", new { @class = "text-danger" })
 
@@ -54,15 +54,15 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    @if (Model == null)
+                    @if (Model.VideoGallery.VideoTitle == null)
                     {
-                        <input type="submit" value="Create" class="btn btn-light" />
+                        <input type="submit" value="Create" id="formSubmitBtn" class="btn btn-light" />
                     }
                     else
                     {
-                        <input type="submit" value="Update" class="btn btn-light" />
+                        <input type="submit" value="Update" id="formSubmitBtn" class="btn btn-light" />
                     }
-
+                    <input type="submit" value="Cancel" id="formCancelBtn" class="btn btn-light" />
                 </div>
             </div>
         </div>

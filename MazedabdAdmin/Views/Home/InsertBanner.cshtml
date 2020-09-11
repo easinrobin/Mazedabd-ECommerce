@@ -21,19 +21,12 @@
 </header>
 
 <div class="card new-contact">
-    @using (Html.BeginForm("InsertBanner", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("InsertBanner", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id="bannerForm" }))
     {
         @Html.HiddenFor(model => model.Banner.Id)
         @Html.HiddenFor(model => model.Banner.ImageUrl)
         @Html.HiddenFor(model => model.Banner.SliderBgImgUrl)
         //var imagepath = "http://www.admin.mazeda-bd.com/" + Model.Banner.ImageUrl;
-        @*<div class="new-contact__header">
-
-            @Html.TextBoxFor(model => model.File, new { type = "file", id = "files", @class = "zmdi zmdi-camera new-contact__upload" })
-            @Html.ValidationMessageFor(model => model.File, "", new{ @class = "text-danger" })
-
-            <img src="@Model.Banner.ImageUrl" class="new-contact__img" alt="">
-        </div>*@
 
         <div class="card-body">
             <div class="row">
@@ -50,19 +43,19 @@
                     <div class="form-group">
                         <label>Short Description</label>
                         @Html.TextBoxFor(model => model.Banner.ShortDescription, new { @class = "form-control", placeholder = "Write a short description" })
-                        @Html.ValidationMessageFor(model => model.Banner.ShortDescription, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Banner.SliderBgImgUrl, new { @class = "card-body__title" })
-                    <div class="card">
-                        <div class="card-body">
-                            <span class="control-label col-md-2">Upload Images:</span>
-                            <div class="col-md-10">
-                                @*<input type="file" name="files" id="file" class="btn btn-success" />*@
-                                @Html.TextBoxFor(model => model.SliderBgImgUrl.File, new { type = "file", id = "file" })
-                                @Html.ValidationMessageFor(model => model.SliderBgImgUrl.File, "", new { @class = "text-danger" })
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Banner Image</label>
+                        <div class="card">
+                            <div class="card-body">
+                                <span class="control-label col-md-2">Upload Images:</span>
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.SliderBgImgUrl.File, new { type = "file", id = "files" })
+                                    @Html.ValidationMessageFor(model => model.SliderBgImgUrl.File, "", new { @class = "text-danger", id = "imgVal" })
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,17 +66,28 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    @if (Model == null)
+                    @if (Model.Banner.Title == null)
                     {
-                        <input type="submit" value="Create" class="btn btn-light" />
+                        <input type="submit" id="formSubmitBtn" value="Create" class="btn btn-light" />
                     }
                     else
                     {
-                        <input type="submit" value="Update" class="btn btn-light" />
+                        <input type="submit" id="formSubmitBtn" value="Update" class="btn btn-light" />
                     }
-
+                    <input type="button" value="Cancel" id="formCancelBtn" class="btn btn-light" />
                 </div>
             </div>
         </div>
     }
 </div>
+
+<script>
+    window.onload = function () {
+        debugger;
+        var imgFile = '@Model.Banner.SliderBgImgUrl';
+        if (imgFile != null && imgFile !== '') {
+            $('#files').rules("remove", "required");
+            $('#imgVal').hide();
+        }
+    }
+</script>

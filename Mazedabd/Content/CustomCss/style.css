@@ -51,7 +51,7 @@ body {
 }
 
 a {
-    color: white;
+    color: #4a4a4a;
 }
 
     a:active {
@@ -3254,7 +3254,7 @@ div.pp_default .pp_description {
 }
 
 #description-bg {
-    background: url(/img/about-bg.jpg);
+    /*background: url(/img/about-bg.jpg);*/
     background-size: cover;
     padding: 100px 0;
 }
